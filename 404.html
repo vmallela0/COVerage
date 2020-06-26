@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>S0S! Can't find page</title>
+    <meta name="description" content="A personal website for Vedu Mallela">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta name="author" content="Vedu Mallela">
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Vollkorn:400,900i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://global-uploads.webflow.com/5c9c9c646cf0969b319f264f/css/deplacemaison.webflow.4dda83800.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+
+
+    <style>
+        /*Antialiased Type */
+        
+        .body {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /* Smooth Scroll */
+            overflow-x: hidden;
+            overflow-y: scroll;
+            overscroll-behavior: none !important;
+        }
+        /*Disable Text Selection */
+        
+        @media(min-width:991px) {
+            * {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        }
+        /*Remove Scrollbar on Desktop */
+        
+         ::-webkit-scrollbar {
+            -ms-overflow-style: none;
+            /* IE 10+ */
+            overflow: -moz-scrollbars-none;
+            /* Firefox */
+            display: none;
+        }
+        
+        @keyframes noise {
+            0%,
+            100% {
+                background-position: 0 0
+            }
+            10% {
+                background-position: -5% -10%
+            }
+            20% {
+                background-position: -15% 5%
+            }
+            30% {
+                background-position: 7% -25%
+            }
+            40% {
+                background-position: 20% 25%
+            }
+            50% {
+                background-position: -25% 10%
+            }
+            60% {
+                background-position: 15% 5%
+            }
+            70% {
+                background-position: 0 15%
+            }
+            80% {
+                background-position: 25% 35%
+            }
+            90% {
+                background-position: -10% 10%
+            }
+        }
+        
+        @keyframes noise {
+            0%,
+            100% {
+                background-position: 0 0
+            }
+            10% {
+                background-position: -5% -10%
+            }
+            20% {
+                background-position: -15% 5%
+            }
+            30% {
+                background-position: 7% -25%
+            }
+            40% {
+                background-position: 20% 25%
+            }
+            50% {
+                background-position: -25% 10%
+            }
+            60% {
+                background-position: 15% 5%
+            }
+            70% {
+                background-position: 0 15%
+            }
+            80% {
+                background-position: 25% 35%
+            }
+            90% {
+                background-position: -10% 10%
+            }
+        }
+        
+        @keyframes noise {
+            0%,
+            100% {
+                background-position: 0 0
+            }
+            10% {
+                background-position: -5% -10%
+            }
+            20% {
+                background-position: -15% 5%
+            }
+            30% {
+                background-position: 7% -25%
+            }
+            40% {
+                background-position: 20% 25%
+            }
+            50% {
+                background-position: -25% 10%
+            }
+            60% {
+                background-position: 15% 5%
+            }
+            70% {
+                background-position: 0 15%
+            }
+            80% {
+                background-position: 25% 35%
+            }
+            90% {
+                background-position: -10% 10%
+            }
+        }
+        /* Ink Cursor */
+        
+        .goo {
+            position: absolute;
+            top: 0;
+        }
+        
+        .ink-cursor {
+            pointer-events: none;
+            position: fixed;
+            display: block;
+            border-radius: 0;
+            -webkit-transform-origin: center center;
+            transform-origin: center center;
+            mix-blend-mode: difference;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            -webkit-filter: url("#goo");
+            filter: url("#goo");
+        }
+        
+        .ink-cursor span {
+            position: absolute;
+            display: block;
+            width: 26px;
+            height: 26px;
+            border-radius: 20px;
+            background-color: #fff;
+            -webkit-transform-origin: center center;
+            transform-origin: center center;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        
+        @media (max-width: 991px) {
+            .ink-cursor,
+            .ink-cursor span {
+                display: none
+            }
+        }
+        /* Nav Text Slider */
+        
+        .ns-link {
+            animation: scrollTextNav 3s infinite linear;
+        }
+        
+        @keyframes scrollTextNav {
+            from {
+                transform: translateX(0%);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+    <style>
+        /* Marquee - Animation */
+        
+        .nf-marquee-text {
+            animation: notFoundMarquee 15s infinite linear;
+        }
+        
+        @keyframes notFoundMarquee {
+            from {
+                transform: translateX(0%);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="body">
+
+    <div class="app nf-section">
+        <div class="not-found">
+            <div data-w-id="2f6ae0f4-4238-341d-9bfb-d00e96934d86" style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                class="nf-marquee">
+                <div class="nf-marquee-wrap">
+                    <div class="nf-marquee-item">
+                        <div class="nf-marquee-text" a>
+                            <div class="nf-marquee-content">
+                                <h1 class="nf-marquee-heading">404</h1>
+                            </div>
+                            <div class="nf-marquee-content">
+                                <h1 class="nf-marquee-heading">S0S</h1>
+                            </div>
+                            <div class="nf-marquee-content">
+                                <h1 class="nf-marquee-heading">404</h1>
+                            </div>
+                            <div class="nf-marquee-content">
+                                <h1 class="nf-marquee-heading">S0S</h1>
+                            </div>
+                            <div class="nf-marquee-content">
+                                <h1 class="nf-marquee-heading">404</h1>
+                            </div>
+                            <div class="nf-marquee-content">
+                                <h1 class="nf-marquee-heading">S0S</h1>
+                            </div>
+                            <div class="nf-marquee-content">
+                                <h1 class="nf-marquee-heading">404</h1>
+                            </div>
+                            <div class="nf-marquee-content">
+                                <h1 class="nf-marquee-heading">S0S</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nf-text" style="text-align: center;">
+                <h2>Oops! Sorry I can't find what you're looking for.
+                    <a href="https://www.vmallela.com/contact" style="color: dodgerblue; font-size: larger; font-family: monospace; text-transform: none;">contact</a> me and I'll fix it!</h2>
+                <h2>or just go
+                    <a href="./index.html" style="color: dodgerblue; font-size: larger; font-family: monospace; text-transform: none;
+                    ">home</a></h2>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15"
+                result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+    </defs>
+</svg>
+
+    <div id="ink-cursor" class="ink-cursor"></div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/niccolomiranda/m-m@f18803d/ink-minify.js"></script>
+
+
+</body>
+
+</html>
