@@ -1,5 +1,5 @@
-var long = 0
-var lat = 0
+var long = 37.4275
+var lat = 122.1697
 
 window.onload = function getLocation() {
     if (navigator.geolocation) {
