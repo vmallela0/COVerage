@@ -1,0 +1,19 @@
+{
+  "name": "covid19",
+  "version": "1.0.0",
+  "description": "covid map",
+  "main": "locate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmallela0/covid-map.git"
+  },
+  "author": "vmallela0",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vmallela0/covid-map/issues"
+  },
+  "homepage": "https://github.com/vmallela0/covid-map#readme"
+}
