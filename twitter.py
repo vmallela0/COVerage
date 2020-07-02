@@ -6,8 +6,9 @@ import matplotlib.pyplot as plt # for mapping our data
 
 consumer_key = 'bUe0HnRooyKBZpzo6de0ZDf4P' 
 consumer_secret = 'Fx4bgDYsIwVpONwQqJZsuC4kBbc3Ib8TJywLmbJkoTcZdMepmo'
-access_token = '1272931080790773763-g2ZkaDSOlc2nnhJfWLCMXhDuGkE02O'
-access_token_secret = 'xtiBwgpR8kUYsMTvNXaf0VcZARgma4EYIGbMVULsF71pX'
+access_token = ''
+access_token_secret = ''
+#edit edit edit
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
