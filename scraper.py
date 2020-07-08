@@ -1,21 +1,11 @@
-import socket
+import requests
+from bs4 import BeautifulSoup
 
-HOST = 'www.hooli.xyz'  # Server hostname or IP address
-PORT = 80        # Port
+URL = 'https://www.fox5atlanta.com/news/atlanta-mayor-to-sign-order-mandating-masks-to-fight-covid-19'
+page = requests.get(URL)
 
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_address = (HOST, PORT)
-client_socket.connect(server_address)
-
-request_header = b'GET / HTTP/1.0\r\nHost: www.hooli.zyx\r\n\r\n'
-client_socket.sendall(request_header)
-
-response = ''
-while True:
-    recv = client_socket.recv(1024)
-    if not recv:
-        break
-    response += str(recv)
-
-print(response)
-client_socket.close() 
+soup = BeautifulSoup(page.content, 'html.parser')
+headline = soup.find("h1")
+content = soup.find("article")
+print(headline.prettify())
+print(content.prettify())
