@@ -8,6 +8,8 @@ r = requests.get(URL)
 type(r)
 html = r.text
 
+
+whitelist = ['\t', '\n']
 # Create a BeautifulSoup object from the HTML
 
 
@@ -24,6 +26,9 @@ header = soup.find('h1').get_text().strip()
 article = ''
 for i in content.findAll('p'):
     article = article + ' ' +  i.text
+
+for b in whitelist:
+    article = article.replace(b, '')
 
 print(header)
 
