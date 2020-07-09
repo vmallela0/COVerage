@@ -59,38 +59,42 @@ training_urls = {
 }
 
 
-r = requests.get(URL)
-type(r)
-html = r.text
+def scrapeTransfer(URL, categrory):
+    r = requests.get(URL)
+    type(r)
+    html = r.text
 
-try:
-    page = urlopen(URL)
-except:
-    print("page not working")
+    try:
+        page = urlopen(URL)
+    except:
+        print("page not working")
 
-soup = BeautifulSoup(page, 'html.parser')
-content = soup.find('div') # , {"class": "article-body"}
-header = soup.find('h1').get_text().strip()
-#print(content)
+    soup = BeautifulSoup(page, 'html.parser')
+    content = soup.find('div') 
+    header = soup.find('h1').get_text().strip()
 
-article = ''
-for i in content.findAll('p'):
-    article = article + ' ' +  i.text
+    article = ''
+    for i in content.findAll('p'):
+        article = article + ' ' +  i.text
 
-for b in whitelist:
-    article = article.replace(b, '')
+    for b in whitelist:
+        article = article.replace(b, '')
 
-print(header)
+    print(header)
 
-def write_json(data, filename='corpus.json'):
-    with open(filename,'w') as f:
-        json.dump(data, f, indent=4)
+    def write_json(data, filename='corpus.json'):
+        with open(filename,'w') as f:
+            json.dump(data, f, indent=4)
 
-new_data = {str(header) : str(article)}
-with open('corpus.json') as json_file:
-    data = json.load(json_file)
-    corpus = data['corpus']
-    corpus.append(new_data)
-write_json(data)
+    new_data = {str(header) : str(article)}
+    with open('corpus.json') as json_file:
+        data = json.load(json_file)
+        corpus = data[categrory]
+        corpus.append(new_data)
+    write_json(data)
+
+for key, value in training_urls.items() :
+    for url in value:
+        scrapeTransfer(url, key)
 
 # print(soup.p)
