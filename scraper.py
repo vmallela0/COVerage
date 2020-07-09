@@ -63,22 +63,28 @@ def scrapeTransfer(URL, categrory):
     r = requests.get(URL)
     type(r)
     html = r.text
+    page = urlopen("https://www.vmallela.com/404") # change to ./404 for exceptions
 
     try:
         page = urlopen(URL)
     except:
-        print("page not working")
-
+        return None
     soup = BeautifulSoup(page, 'html.parser')
     content = soup.find('div') 
-    header = soup.find('h1').get_text().strip()
+    if(soup.find('h1') == None):
+        header = "error"
+    else:
+        header = soup.find('h1').get_text().strip()
 
     article = ''
-    for i in content.findAll('p'):
-        article = article + ' ' +  i.text
+    if(content == None):
+            article = 'error'
+    else:
+        for i in content.findAll('p'):
+            article = article + ' ' +  i.text
 
-    for b in whitelist:
-        article = article.replace(b, '')
+        for b in whitelist:
+            article = article.replace(b, '')
 
     print(header)
 
