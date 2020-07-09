@@ -9,8 +9,28 @@ type(r)
 html = r.text
 
 
+
 whitelist = ['\t', '\n']
 # Create a BeautifulSoup object from the HTML
+
+
+training_urls = {
+    "politics": [
+
+    ],
+    "education": [
+
+    ],
+    "biology": [
+
+    ],
+    "economy": [
+
+    ],
+    "statistics": [
+
+    ],
+}
 
 
 try:
@@ -35,7 +55,7 @@ print(header)
 def write_json(data, filename='corpus.json'):
     with open(filename,'w') as f:
         json.dump(data, f, indent=4)
-        
+
 new_data = {str(header) : str(article)}
 with open('corpus.json') as json_file:
     data = json.load(json_file)
