@@ -11,19 +11,6 @@ URL = 'https://www.mercurynews.com/2020/07/07/h-1b-san-jose-firm-will-pay-to-res
 
 
 whitelist = ['\t', '\n']
-whitelist_summarization = ["the","of","&", "and","a","to","in","is","you","that","it","he","was","for","on","are","as","with","his","they","I","at","be","this","have","from","or","one","had","by","word","but","not","what","all","were","we","when","your","can","said","there","use","an","each","which","she","do","how","their","if","will","up","other","about","out","many","then","them","these","so","some","her","would","make","like","him","into","time","has","look","two","more","write","go","see","number","no","way","could","people","my","than","first","water","been","call","who","its","now","find","long","down","day","did","get","come","made","may","part"]
-
-summary = "Coronavirus (COVID-19) Main Web Page  This guidance was created through the statewide reopening schools  task force that fostered a collaborative process for our educators and stakeholders  to lend their important voices. Also informed by the technical assistance and  advice of many health and safety organizations including the Centers for  Disease Control, California Department of Public Health, California Division of  Occupational Safety and Health, the intent of this document is to be a guide  for the local discussion on safely reopening schools. Stronger Together Guidebook Video Overview  \u00a0 Stronger Together:\r  A Guidebook for the Safe Reopening of California's Public Schools(PDF; 4MB; Added 08-Jun-2020) CDE Locations CDE Mission CDE Organization Contact Us Equal Opportunity Jobs at CDE Newsroom Superintendent's Initiatives Meeting Agendas Meeting Minutes & Schedule Members California School Dashboard Common Core State Standards Complaint Procedures Content Standards Curriculum Resources Education Funding English Language Development Standards Financial Allocations & Apportionments High School Equivalency Tests High School Graduation Requirements Kindergarten in California Released Test Questions Social and Emotional Learning Standards & Frameworks Accountability - School Performance Career Technical Education Charter Schools Child Nutrition Child Development Disaster and Emergency Management  Expanded Learning Principal Apportionments Safe Schools School Facilities Special Education Standardized Testing Title I Title III California School Directory Education Calendars Education FAQs Language Access Complaint Laws & Regulations Multilingual Documents Publications School and District Reports >> More Resources A-Z Index | Site Map Web Policy Accessibility Certification \r\u00a9 California Department of Education"
-split_sentences = summary.split()
-Counter = Counter(split_sentences)
-keywords = Counter.most_common(20)
-keyList = []
-for word in keywords:
-    keyList.append(word[0]) if word[0] not in stopwords.words('english')]
-    for delWord in whitelist_summarization:
-        if(word == delWord):
-            keyList.remove(word)
-print(keyList)
 
 training_urls = {
     "politics": [
