@@ -58,7 +58,22 @@ training_urls = {
     ],
 }
 
+def isNone(URL, category):
+    r = requests.get(URL)
+    type(r)
+    html = r.text
+    page = urlopen("https://www.vmallela.com/404") # change to ./404 for exceptions
 
+    try:
+        page = urlopen(URL)
+    except:
+        return True
+    soup = BeautifulSoup(page, 'html.parser')
+    content = soup.find('div')
+    if(content == None):
+        return True
+    else:
+        return False
 def scrapeTransfer(URL, categrory):
     r = requests.get(URL)
     type(r)
@@ -70,7 +85,7 @@ def scrapeTransfer(URL, categrory):
     except:
         return None
     soup = BeautifulSoup(page, 'html.parser')
-    content = soup.find('div') 
+    content = soup.find('div')
     if(soup.find('h1') == None):
         header = "error"
     else:
@@ -101,6 +116,7 @@ def scrapeTransfer(URL, categrory):
 
 for key, value in training_urls.items() :
     for url in value:
-        scrapeTransfer(url, key)
+        if isNone(url, key) == False:
+            scrapeTransfer(url, key)
 
 # print(soup.p)
