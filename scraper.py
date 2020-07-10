@@ -6,9 +6,6 @@ from collections import Counter
 URL = 'https://www.mercurynews.com/2020/07/07/h-1b-san-jose-firm-will-pay-to-resolve-claim-it-favored-indian-applicants-over-white-applicants/'
 
 
-
-
-
 whitelist = ['\t', '\n']
 
 training_urls = {
