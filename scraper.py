@@ -108,7 +108,8 @@ def scrapeTransfer(URL, categrory):
         data = json.load(json_file)
         corpus = data[categrory]
         corpus.append(new_data)
-    write_json(data)
+    if (article != ""):
+        write_json(data)
 
 for key, value in training_urls.items() :
     for url in value:
