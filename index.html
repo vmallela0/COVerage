@@ -4,10 +4,10 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
     <meta name="description" content="A personal website for Vedu Mallela">
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon/favicon-32x32.png">
     <meta name="keywords" content="HTML,CSS,JavaScript">
     <meta name="author" content="Vedu Mallela">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Vollkorn:400,900i&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://global-uploads.webflow.com/5c9c9c646cf0969b319f264f/css/deplacemaison.webflow.4dda83800.min.css" rel="stylesheet" type="text/css" />
@@ -17,7 +17,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
     <title>COVerage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             margin: 0;
@@ -37,6 +36,16 @@
             .topnav a.icon {
                 float: right;
                 display: block;
+            }
+            .left-half {
+                background-color: #dad7cb;
+                left: 5px;
+                width: 46%;
+            }
+            .right-half {
+                background-color: #dad7cb;
+                right: 5px;
+                width: 46%;
             }
         }
         
@@ -72,6 +81,71 @@
             text-transform: none;
             font-family: 'Vollkorn';
         }
+        
+        h3 {
+            font-family: 'Vollkorn';
+            font-size: x-large;
+        }
+        
+        h4 {
+            text-transform: none;
+        }
+        
+        .responsive-iframe {
+            position: absolute;
+            right: 15%;
+            border: none;
+        }
+        
+        .container {
+            display: table;
+            width: 100%;
+        }
+        
+        .left-half {
+            background-color: #dad7cb;
+            position: absolute;
+            left: 15px;
+            width: 50%;
+            margin-top: 15px;
+        }
+        
+        .right-half {
+            background-color: #dad7cb;
+            position: absolute;
+            right: 15px;
+            width: 47%;
+            padding: 10px;
+            margin-top: 15px;
+        }
+        
+        .row {
+            align-items: stretch;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        
+        .card {
+            /*float: left;*/
+            max-width: 33.333%;
+            padding: .75rem;
+            margin-bottom: 2rem;
+            border: 0;
+            flex-basis: 33.333%;
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+        
+        .card>img {
+            margin-bottom: .75rem;
+        }
+        
+        .card-text {
+            font-size: 85%;
+        }
     </style>
 </head>
 
@@ -81,9 +155,151 @@
         <h2>COVerage</h2>
     </div>
 
-    <iframe style="width: 600px; height: 855px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/" frameborder="0" scrolling="no"></iframe>
+    <section class="container">
+        <div class="left-half">
+            <article>
+                <h2 style="color: #8c1515;">COVID-19 News in [San Jose]</h2><br>
+                <h2 style="color: black;">Education</h2>
+                <div class="container">
+                    <div class="row" style="padding-left: 25px;">
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline when it's multiple lines</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="color: black;">Economy</h2>
+                <div class="container">
+                    <div class="row" style="padding-left: 25px;">
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline when it's multiple lines</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="color: black;">Economy</h2>
+                <div class="container">
+                    <div class="row" style="padding-left: 25px;">
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline when it's multiple lines</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="color: black;">Economy</h2>
+                <div class="container">
+                    <div class="row" style="padding-left: 25px;">
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline when it's multiple lines</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="color: black;">Economy</h2>
+                <div class="container">
+                    <div class="row" style="padding-left: 25px;">
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline when it's multiple lines</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                        <div class="card">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="right-half">
+            <article>
+                <iframe style="width: 855px; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/" frameborder="0" scrolling="no"></iframe>
+            </article>
+        </div>
+    </section>
 
 
 </body>
+
+</html>
 
 </html>
