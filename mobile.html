@@ -14,9 +14,20 @@
     <link href="https://global-uploads.webflow.com/5c9c9c646cf0969b319f264f/css/deplacemaison.webflow.4dda83800.min.css" rel="stylesheet" type="text/css" />
     <title>COVerage</title>
     <style>
+        html,
+        body {
+            overflow-x: hidden
+        }
+        
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
+            background-color: #dad7cb;
+            overflow-x: none;
+        }
+        
+        html {
+            overflow-x: none;
         }
         
         .topnav {
@@ -32,16 +43,6 @@
             .topnav a.icon {
                 float: right;
                 display: block;
-            }
-            .left-half {
-                background-color: #dad7cb;
-                left: 5px;
-                width: 46%;
-            }
-            .right-half {
-                background-color: #dad7cb;
-                right: 5px;
-                width: 46%;
             }
         }
         
@@ -63,24 +64,26 @@
                 color: white;
                 text-align: center;
                 font-size: 60px;
-                margin: 15%;
+                margin: 10%;
                 text-transform: none;
             }
         }
         
         h2 {
-            color: white;
+            color: black;
             text-align: center;
-            font-size: 60px;
+            font-size: xx-large;
             /* margin: 7%; */
             text-transform: none;
             font-family: 'Source Serif Pro', serif;
             letter-spacing: -1px;
+            line-height: 25px;
         }
         
         h3 {
-            font-family: 'Vollkorn';
-            font-size: x-large;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: large;
+            text-transform: none;
         }
         
         h4 {
@@ -89,6 +92,10 @@
         
         p {
             font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .cat {
+            text-align: left;
         }
         
         p,
@@ -124,7 +131,7 @@
         }
         
         .card {
-            /*float: left;*/
+            /* float: left; */
             max-width: 33.333%;
             padding: .75rem;
             margin-bottom: 2rem;
@@ -132,6 +139,7 @@
             flex-basis: 33.333%;
             flex-grow: 0;
             flex-shrink: 0;
+            /* padding-right: 20px; */
         }
         
         .card>img {
@@ -139,7 +147,9 @@
         }
         
         .card-text {
-            font-size: 85%;
+            font-size: medium;
+            line-height: 18px;
+            max-width: 60%;
         }
     </style>
 </head>
@@ -147,8 +157,187 @@
 <body>
 
     <div class="topnav" id="myTopnav">
-        <h2 style="padding: 5px; letter-spacing: .3px;">COVerage</h2>
+        <h2 style="letter-spacing: .3px; color: white;">COVerage</h2>
     </div>
+
+    <h2 style="color: #8c1515;">COVID-19 News in [San Jose]</h2>
+
+    <div class="container">
+        <h2 class="cat">Policies</h2>
+        <div class="row">
+            <div class="card" style="padding-left: 40px;">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+            <div class="card">
+                <h3><b>Headline when it's multiple lines</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+            <div class="card">
+                <h3><b>Headline when it's multiple lines</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+        </div>
+
+        <h2 class="cat">Education</h2>
+        <div class="row">
+            <div class="card" style="padding-left: 40px;">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+            <div class="card">
+                <h3><b>Headline when it's multiple lines</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+            <div class="card">
+                <h3><b>Headline when it's multiple lines</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+        </div>
+
+        <h2 class="cat">Biology</h2>
+        <div class="row">
+            <div class="card" style="padding-left: 40px;">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+            <div class="card">
+                <h3><b>Headline when it's multiple lines</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+            <div class="card">
+                <h3><b>Headline when it's multiple lines</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+        </div>
+
+        <h2 class="cat">Economy</h2>
+        <div class="row">
+            <div class="card" style="padding-left: 40px;">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+            <div class="card">
+                <h3><b>Headline when it's multiple lines</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+            <div class="card">
+                <h3><b>Headline when it's multiple lines</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+        </div>
+
+        <h2 class="cat">Statistics</h2>
+        <div class="row">
+            <div class="card" style="padding-left: 40px;">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+            <div class="card">
+                <h3><b>Headline when it's multiple lines</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+            <div class="card">
+                <h3><b>Headline when it's multiple lines</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+
+            <div class="card">
+                <h3><b>Headline</b></h3>
+                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                </p>
+            </div>
+        </div>
+        <!-- <iframe style="width: 100%; height: 805px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/" frameborder="0" scrolling="yes"></iframe> -->
 
 
 </body>
