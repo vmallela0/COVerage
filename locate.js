@@ -1,3 +1,5 @@
+// NULL CODE
+
 var long = 37.4275;
 var lat = 122.1697;
 
