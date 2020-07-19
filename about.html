@@ -163,6 +163,62 @@
 
     <h2 style="line-height: 35px;"><br> <a href="./index.html">Click here to return home</a></h2>
     <h2 style="line-height: 35px; margin-bottom: 15px;"><br> <a href="./donate.html">Donate to help fight COVID-19!</a></h2>
+
+    <style>
+        .goo {
+            position: absolute;
+            /* top: 0; */
+        }
+        
+        .ink-cursor {
+            pointer-events: none;
+            position: fixed;
+            display: block;
+            border-radius: 0;
+            -webkit-transform-origin: center center;
+            transform-origin: center center;
+            mix-blend-mode: difference;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            -webkit-filter: url("#goo");
+            filter: url("#goo");
+        }
+        
+        .ink-cursor span {
+            position: absolute;
+            display: block;
+            width: 26px;
+            height: 26px;
+            border-radius: 20px;
+            background-color: #8c1515;
+            -webkit-transform-origin: center center;
+            transform-origin: center center;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        
+        @media (max-width: 991px) {
+            .ink-cursor,
+            .ink-cursor span {
+                display: none
+            }
+        }
+    </style>
+    <svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15"
+                    result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+
+    <div id="ink-cursor" class="ink-cursor"></div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/niccolomiranda/m-m@f18803d/ink-minify.js"></script>
 </body>
 
 </html>
