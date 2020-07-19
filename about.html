@@ -63,8 +63,14 @@
                 color: white;
                 text-align: center;
                 font-size: 60px;
-                margin: 10%;
+                /* margin: 10%; */
                 text-transform: none;
+            }
+        }
+        
+        @media screen and (max-width: 800px) {
+            h2 {
+                margin: 0px;
             }
         }
         
@@ -132,43 +138,12 @@
             margin: 15px;
         }
         
-        .row {
-            align-items: stretch;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            overflow-y: hidden;
-        }
-        
-        .card {
-            /* float: left; */
-            max-width: 33.333%;
-            padding: .75rem;
-            margin-bottom: 2rem;
-            border: 0;
-            flex-basis: 33.333%;
-            flex-grow: 0;
-            flex-shrink: 0;
-            /* padding-right: 20px; */
-        }
-        
         .center {
             display: block;
             margin-left: auto;
             margin-right: auto;
             /* width: 50%; */
             width: 15%;
-        }
-        
-        .card>img {
-            margin-bottom: .75rem;
-        }
-        
-        .card-text {
-            font-size: medium;
-            line-height: 18px;
-            max-width: 60%;
         }
     </style>
 </head>
@@ -179,11 +154,15 @@
         <h2 style="letter-spacing: .3px; color: white; font-size: 55px; margin: 25px;">COVerage</h2>
     </div>
 
-    <h1>¡Error!</h1>
+    <h1>About Us</h1>
     <!-- <h2 style="line-height: 35px;">Sorry we couldn't find that for you. <br> <a href="mailto:me@vmallela.com">Contact us here and we'll fix it :)</a></h2> -->
+
+    <h2 style="line-height: 35px; font-size: x-large;">COVerage recognizes the effects of COVID-19 on a global and local scale, COVerage is a website and mobile app that delivers up-to-date and location specific news directly to you. We aim to make the most relevant information easily accessible in just
+        a few clicks. COVerage is primarily designed and run by five students who are working as interns at the Stanford Compression Forum. in these fields to provide you, our users, with an unforgettable experience through COVerage.</h2>
     <img src="./assets/volcano.jpg" class="center">
+
     <h2 style="line-height: 35px;"><br> <a href="./index.html">Click here to return home</a></h2>
-    <h2 style="line-height: 35px;"><br> <a href="./index.html">Donate to help fight COVID-19!</a></h2>
+    <h2 style="line-height: 35px; margin-bottom: 15px;"><br> <a href="./donate.html">Donate to help fight COVID-19!</a></h2>
 </body>
 
 </html>
