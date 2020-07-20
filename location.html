@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <title>Location API tester :)</title>
+
+    <body>
+        <h1>🛸Location API tests 🏄🏽‍♂️</h1>
+
+        <p id="demo"></p>
+
+    </body>
+
+
+    <script>
+        var x = document.getElementById("demo");
+        var lat = 37.431313849999995;
+        var long = -122.16936535498309;
+
+        // getting long and lat
+        window.onload = function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
+        }
+
+        // feeding in long and lat to convert into FIPS and county
+        var fips_url = "https://geo.fcc.gov/api/census/area?lat=" + lat + "&lon=" + long + "&format=json";
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": fips_url,
+            "method": "GET"
+        }
+
+        // reading in json object and extracting fips, county and state
+        $.ajax(settings).done(function(response) {
+            console.log(response)
+            console.log(response.results[0].county_name)
+            console.log(response.results[0].state_name)
+            console.log(response.results[0].county_fips);
+        });
+
+        document.getElementById("demo") += (response.results[0].county_name)
+    </script>
+</head>
+
+
+
+</html>
