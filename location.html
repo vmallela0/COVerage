@@ -13,6 +13,7 @@
         <p id="fips"></p>
         <p id="county"></p>
         <p id="state"></p>
+        <p id="embed"></p>
 
     </body>
 
@@ -22,7 +23,7 @@
         var fips = document.getElementById("fips");
         var county = document.getElementById("county");
         var state = document.getElementById("state");
-
+        var embed_county = document.getElementById("embed");
 
         // getting long and lat
         window.onload = function getLocation() {
@@ -73,6 +74,7 @@
                 county.innerHTML = "County:  " + response.results[0].county_name
                 state.innerHTML = "State:  " + response.results[0].state_name
                 fips.innerHTML = "FIPS:  " + response.results[0].county_fips
+                embed_county.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/' + response.results[0].county_fips + '"frameborder="0" scrolling="no"></iframe>'
             });
         }
     </script>
