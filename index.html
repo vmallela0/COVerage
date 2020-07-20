@@ -14,7 +14,7 @@
     <meta name="author" content="Vedu Mallela">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap" rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://global-uploads.webflow.com/5c9c9c646cf0969b319f264f/css/deplacemaison.webflow.4dda83800.min.css" rel="stylesheet" type="text/css" />
@@ -178,7 +178,7 @@
     <section class="container">
         <div class="left-half">
             <article>
-                <h2 style="color: #8c1515; padding: 20px; line-height: 55px;">COVID-19 News in [San Jose]</h2>
+                <h2 style="color: #8c1515; padding: 20px; line-height: 55px;" id="covid_nametag"></h2>
                 <h2 style="color: black;">Policies</h2>
                 <div class="container">
                     <div class="row" style="padding-left: 25px;">
@@ -343,7 +343,10 @@
         </div>
         <div class="right-half">
             <article>
-                <iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/06085" frameborder="0" scrolling="no"></iframe>
+                <p id="embed"></p>
+                <script src="./locationEmbed.js">
+                </script>
+                <!-- <iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/06085" frameborder="0" scrolling="no"></iframe> -->
                 <iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/" frameborder="0" scrolling="no"></iframe>
                 <p>
 
