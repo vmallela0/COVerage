@@ -10,48 +10,71 @@
         <h1>🛸Location API tests 🏄🏽‍♂️</h1>
 
         <p id="demo"></p>
+        <p id="fips"></p>
+        <p id="county"></p>
+        <p id="state"></p>
 
     </body>
 
 
     <script>
-        var x = document.getElementById("demo");
-        var lat = 37.431313849999995;
-        var long = -122.16936535498309;
+        var coordinates = document.getElementById("demo");
+        var fips = document.getElementById("fips");
+        var county = document.getElementById("county");
+        var state = document.getElementById("state");
+
 
         // getting long and lat
         window.onload = function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
+                coordinates.innerHTML = "Geolocation is not supported by this browser.";
             }
+            navigator.geolocation.watchPosition(
+                function(position) { // location access accepted => loads lat, long into fips_lookup
+                    console.log("LOCATION ACCESS GRANTED \nLatitude: " + lat + "\nLongitude: " + long);
+                    fips_lookup(lat, long)
+                },
+                function(error) { // handles location access denied => defaults location to stanford
+                    if (error.code == error.PERMISSION_DENIED) {
+                        var lat = 37.431313849999995
+                        var long = -122.16936535498309
+                        console.log("LOCATION ACCESS DENIED");
+                        console.log("default latitude: " + lat + "\ndefault longitude: " + long)
+                        fips_lookup(lat, long)
+                    }
+
+                });
+
         }
 
         function showPosition(position) {
-            x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+            coordinates.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
             lat = position.coords.latitude;
             long = position.coords.longitude;
+            fips_lookup()
         }
 
-        // feeding in long and lat to convert into FIPS and county
-        var fips_url = "https://geo.fcc.gov/api/census/area?lat=" + lat + "&lon=" + long + "&format=json";
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": fips_url,
-            "method": "GET"
+        function fips_lookup(geolat, geolong) {
+            // feeding in long and lat to convert into FIPS and county
+
+            var fips_url = "https://geo.fcc.gov/api/census/area?lat=" + geolat + "&lon=" + geolong + "&format=json";
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": fips_url,
+                "method": "GET"
+            }
+
+            // reading in json object and extracting fips, county and state
+            $.ajax(settings).done(function(response) {
+                console.log(response)
+                county.innerHTML = "County:  " + response.results[0].county_name
+                state.innerHTML = "State:  " + response.results[0].state_name
+                fips.innerHTML = "FIPS:  " + response.results[0].county_fips
+            });
         }
-
-        // reading in json object and extracting fips, county and state
-        $.ajax(settings).done(function(response) {
-            console.log(response)
-            console.log(response.results[0].county_name)
-            console.log(response.results[0].state_name)
-            console.log(response.results[0].county_fips);
-        });
-
-        document.getElementById("demo") += (response.results[0].county_name)
     </script>
 </head>
 
