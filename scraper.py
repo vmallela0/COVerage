@@ -16,13 +16,24 @@ training_urls = {
         'https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/california-santa-clara-county.html',
         'https://www.sfchronicle.com/news/article/Coronavirus-FAQ-Should-you-wear-a-face-mask-15147298.php',
         'https://www.mercurynews.com/2020/05/20/santa-clara-county-now-requires-that-you-wear-a-face-covering-san-jose-wants-to-go-further/',
+        'https://www.theguardian.com/us-news/live/2020/jul/20/coronavirus-donald-trump-fox-interview-mike-pompeo-joe-biden-live-updates',
+        'https://www.nytimes.com/2020/07/19/us/politics/republicans-contradict-trump-coronavirus.html',
+        'https://www.cnn.com/2020/07/20/politics/donald-trump-coronavirus-texas-testing/index.html',
+        'https://www.nytimes.com/2020/07/18/us/politics/trump-coronavirus-response-failure-leadership.html',
+        'https://www.bbc.com/news/business-53224752',
+        'https://www.nbcnews.com/politics/meet-the-press/latest-spike-coronavirus-cases-sparks-new-political-debates-n1229811'
     ],
     "education": [
         'https://www.cde.ca.gov/ls/he/hn/strongertogether.asp',
         'https://www.sccoe.org/covid-19/Pages/latest-updates.aspx',
         'https://www.sfchronicle.com/bayarea/article/Bay-Area-high-school-students-miss-academic-15152197.php',
         'https://www.mercurynews.com/2020/05/28/california-school-districts-could-forego-attendance-standardized-tests-during-coronavirus-pandemic/',
-        'https://abc7news.com/education/watch-today-state-superintendent-discusses-guidelines-to-reopen-schools-/6201690/'
+        'https://abc7news.com/education/watch-today-state-superintendent-discusses-guidelines-to-reopen-schools-/6201690/',
+        'https://edsource.org/2020/latest-updates-on-education-and-the-coronavirus-crisis/635717',
+        'https://edsource.org/2020/latest-updates-on-education-and-the-coronavirus-crisis/635717',
+        'https://www.clickorlando.com/news/local/2020/07/20/florida-education-association-suing-governor-over-schools-reopening/',
+        'https://www.usnews.com/news/education-news/articles/2020-07-20/florida-education-association-sues-gov-ron-desantis-over-order-to-reopen-schools',
+        'https://www.usnews.com/news/education-news/articles/2020-05-01/one-third-of-teachers-are-at-higher-risk-for-coronavirus'
     ],
     "biology": [
         'https://www.cidrap.umn.edu/news-perspective/2020/05/scientists-exactly-zero-evidence-covid-19-came-lab',
@@ -33,8 +44,14 @@ training_urls = {
         'https://www.nytimes.com/interactive/2020/science/coronavirus-vaccine-tracker.html',
         'https://landing.google.com/screener/covid19',
         'https://www.sccgov.org/sites/covid19/Pages/covid19-testing.aspx',
-        'https://www.cvs.com/minuteclinic/covid-19-testing'
-    ],
+        'https://www.cvs.com/minuteclinic/covid-19-testing',
+        'https://www.nature.com/articles/d41586-020-01315-7',
+        'https://www.pennmedicine.org/news/news-blog/2020/march/the-biology-of-coronaviruses',
+        'https://www.statnews.com/2020/03/09/coronavirus-scientists-play-legos-with-proteins-to-build-next-gen-vaccine/',
+        'https://www.nih.gov/news-events/news-releases/new-coronavirus-stable-hours-surfaces',
+        'https://cen.acs.org/analytical-chemistry/structural-biology/structural-biologists-revealed-new-coronaviruss/98/i17',
+        'https://www.sciencemag.org/news/2020/04/how-does-coronavirus-kill-clinicians-trace-ferocious-rampage-through-body-brain-toes'
+        ],
     "economy": [
         'https://www.nytimes.com/interactive/2020/us/states-reopen-map-coronavirus.html',
         'https://www.mercurynews.com/2020/06/12/coronavirus-retail-valley-fair-oakridge-malls-prep-re-openings-economy-commercial-real-estate-jobs/',
@@ -52,7 +69,8 @@ training_urls = {
         'https://wgxa.tv/news/coronavirus/hospitalizations-rise-as-georgia-virus-cases-hit-new-peak',
         'https://dph.georgia.gov/covid-19-daily-status-report'
     ],
-}
+
+    }
 
 def isNone(URL, category):
     r = requests.get(URL)
