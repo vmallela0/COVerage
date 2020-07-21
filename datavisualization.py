@@ -1,4 +1,3 @@
-#something I found online:
 import nltk
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
