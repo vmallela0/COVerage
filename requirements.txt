@@ -15,3 +15,4 @@ Flask-Table==0.5.0
 Flask-WTF==0.14.2
 Frozen-Flask==0.15
 gunicorn
+torch
