@@ -201,7 +201,7 @@
     <h2><br> <a href="{{ url_for('home') }}"><b>Click here to return home</b></a></h2>
     <h2 style="line-height: 35px; margin-bottom: 15px;"><br><a href="{{ url_for('about') }}"><b>Learn more about us here</b></a>
     </h2>
-    <img src="./assets/volcano.png" class="center" style="width: 230px;">
+    <img src="{{ url_for('static', filename = 'img/volcano.png') }}" class="center" style="width: 230px;">
 
 
     <style>
