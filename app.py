@@ -13,5 +13,10 @@ def about():
 def donate():
     return render_template("donate.html")
 
+@app.route('/mobile')
+def mobile():
+    return render_template("mobile.html")   
+
+    
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
