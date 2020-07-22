@@ -1,4 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/aa8c4d56-83c9-435b-aa8c-ed471fdd47c8/deploy-status)](https://app.netlify.com/sites/gracious-engelbart-f21900/deploys)
 # COVerage
 
 COVerage is a project that aims to deliver region-specific news to users regarding SARS-CoV-2. It scrapes news by using the Google Search API to find different news based on users' locations. Then, it feeds the inputted information through our NLP model that returns the validity of the content as well as a summary of the text. 

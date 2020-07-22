@@ -36,7 +36,7 @@ function showPosition (position) {
 function fips_lookup (geolat, geolong) {
   // feeding in long and lat to convert into FIPS and county
 
-  var fips_url = 'https://geo.fcc.gov/api/census/area?lat=' + geolat + '&lon=' + geolong + '&format=json';
+  var fips_url = 'https://geo.fcc.gov/api/census/area?lat=' + geolat + '&lon=' + geolong + '&format=json'
   var settings = {
     async: true,
     crossDomain: true,
