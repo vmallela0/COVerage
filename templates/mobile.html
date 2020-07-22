@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
     <meta name="description" content="Region-specific AI based news on the COVID-19 pandemic (Mobile version)">
-    <link rel="shortcut icon" type="image/png" href="./assets/favicon/favicon-32x32.png">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
     <meta name="keywords" content="HTML,CSS,JavaScript">
     <meta name="author" content="Vedu Mallela">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@900&display=swap" rel="stylesheet">
@@ -19,23 +19,23 @@
         body {
             overflow-x: hidden
         }
-        
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             background-color: #dad7cb;
             overflow-x: none;
         }
-        
+
         html {
             overflow-x: none;
         }
-        
+
         .topnav {
             overflow: hidden;
             background-color: #8c1515;
             position: relative;
         }
-        
+
         @media screen and (max-width: 600px) {
             .topnav a:not(:first-child) {
                 display: none;
@@ -45,7 +45,7 @@
                 display: block;
             }
         }
-        
+
         @media screen and (max-width: 600px) {
             .topnav.responsive {
                 position: relative;
@@ -68,7 +68,7 @@
                 text-transform: none;
             }
         }
-        
+
         h2 {
             color: black;
             text-align: center;
@@ -79,49 +79,49 @@
             letter-spacing: -1px;
             line-height: 25px;
         }
-        
+
         h3 {
             font-family: 'Source Sans Pro', sans-serif;
             font-size: large;
             text-transform: none;
         }
-        
+
         h4 {
             font-family: 'Source Sans Pro', sans-serif;
         }
-        
+
         p {
             font-family: 'Source Sans Pro', sans-serif;
         }
-        
+
         .cat {
             text-align: left;
         }
-        
+
         p,
         h4,
         a {
             text-transform: none;
         }
-        
+
         a {
             font-size: x-small;
             color: #8c1515;
             margin: 5px;
         }
-        
+
         .responsive-iframe {
             position: absolute;
             right: 15%;
             border: none;
         }
-        
+
         .container {
             display: table;
             width: 100%;
             margin: 15px;
         }
-        
+
         .row {
             align-items: stretch;
             display: flex;
@@ -130,7 +130,7 @@
             overflow-x: auto;
             overflow-y: hidden;
         }
-        
+
         .card {
             /* float: left; */
             max-width: 33.333%;
@@ -142,11 +142,11 @@
             flex-shrink: 0;
             /* padding-right: 20px; */
         }
-        
+
         .card>img {
             margin-bottom: .75rem;
         }
-        
+
         .card-text {
             font-size: medium;
             line-height: 18px;
@@ -341,7 +341,7 @@
                 </p>
             </div>
         </div>
-        <script src="./locationEmbed.js">
+        <script src="{{ url_for('static', filename='js/locationEmbed.js') }}">
         </script>
         <h2 style="text-align: left; ">
             <a href="./donate.html" style="font-size: xx-large; text-align: left;"><b>Click here to donate</b></a></h2>

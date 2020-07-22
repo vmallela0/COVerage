@@ -9,7 +9,7 @@
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
     <meta name="description" content="Region-specific AI based news on the COVID-19 pandemic">
-    <link rel="shortcut icon" type="image/png" href="./assets/favicon/favicon-32x32.png">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
     <meta name="keywords" content="HTML,CSS,JavaScript">
     <meta name="author" content="Vedu Mallela">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@900&display=swap" rel="stylesheet">
@@ -24,13 +24,13 @@
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
-        
+
         .topnav {
             overflow: hidden;
             background-color: #8c1515;
             position: relative;
         }
-        
+
         @media screen and (max-width: 600px) {
             .topnav a:not(:first-child) {
                 display: none;
@@ -50,7 +50,7 @@
                 width: 46%;
             }
         }
-        
+
         @media screen and (max-width: 600px) {
             .topnav.responsive {
                 position: relative;
@@ -73,7 +73,7 @@
                 text-transform: none;
             }
         }
-        
+
         h2 {
             color: white;
             text-align: center;
@@ -83,43 +83,43 @@
             font-family: 'Source Serif Pro', serif;
             letter-spacing: -1px;
         }
-        
+
         h3 {
             font-family: 'Vollkorn';
             font-size: x-large;
         }
-        
+
         h4 {
             font-family: 'Source Sans Pro', sans-serif;
         }
-        
+
         p {
             font-family: 'Source Sans Pro', sans-serif;
         }
-        
+
         p,
         h4,
         a {
             text-transform: none;
         }
-        
+
         a {
             font-size: x-small;
             color: #8c1515;
             margin: 5px;
         }
-        
+
         .responsive-iframe {
             position: absolute;
             right: 15%;
             border: none;
         }
-        
+
         .container {
             display: table;
             width: 100%;
         }
-        
+
         .left-half {
             background-color: #dad7cb;
             position: absolute;
@@ -128,7 +128,7 @@
             margin-top: 15px;
             margin-bottom: 15px;
         }
-        
+
         .right-half {
             background-color: #dad7cb;
             position: absolute;
@@ -138,7 +138,7 @@
             margin-top: 15px;
             margin-bottom: 15px;
         }
-        
+
         .row {
             align-items: stretch;
             display: flex;
@@ -147,7 +147,7 @@
             overflow-x: auto;
             overflow-y: hidden;
         }
-        
+
         .card {
             /*float: left;*/
             max-width: 33.333%;
@@ -158,11 +158,11 @@
             flex-grow: 0;
             flex-shrink: 0;
         }
-        
+
         .card>img {
             margin-bottom: .75rem;
         }
-        
+
         .card-text {
             font-size: 85%;
         }
@@ -345,7 +345,7 @@
         <div class="right-half">
             <article>
                 <p id="embed"></p>
-                <script src="./locationEmbed.js">
+                <script src="{{ url_for('static', filename='js/locationEmbed.js') }}">
                 </script>
                 <!-- <iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/06085" frameborder="0" scrolling="no"></iframe> -->
                 <iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/" frameborder="0" scrolling="no"></iframe>
