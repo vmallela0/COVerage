@@ -6,7 +6,8 @@ import json
 def home():
     with open('corpus.json') as f:
         data = json.load(f)
-        print (data['attributes']['test'])
+        print (data['attributes'][0]['test'])
+        tester = data['attributes'][0]['test']
     return render_template("index.html", tester=tester)
 
 @app.route('/about')

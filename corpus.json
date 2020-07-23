@@ -1,12 +1,14 @@
 {
-	"attributes" : [
-        "test": "I hope this works",
-    ],
-	"categories" : [
+  "attributes": [
+    {
+      "test": "test"
+    }
+  ],
+  "categories" : {
 		"politics": [],
 		"education": [],
 		"biology": [],
 		"economy": [],
 		"statistics": []
-	]
+  }
 }
