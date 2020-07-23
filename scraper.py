@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import json
 from collections import Counter
-URL = 'https://www.mercurynews.com/2020/07/07/h-1b-san-jose-firm-will-pay-to-resolve-claim-it-favored-indian-applicants-over-white-applicants/'
+import re
 
 
 whitelist = ['\t', '\n']
@@ -129,9 +129,26 @@ def scrapeTransfer(URL, categrory):
     if (article != ""):
         write_json(data)
 
-for key, value in training_urls.items() :
-    for url in value:
-        if isNone(url, key) == False:
-            scrapeTransfer(url, key)
+def create_validation_set():
+    for key, value in training_urls.items() :
+        for url in value:
+            if isNone(url, key) == False:
+                scrapeTransfer(url, key)
 
-# print(soup.p)
+    # print(soup.p)
+
+def img_scraper(url):
+    img_urls = []
+    html = urlopen(url)
+    bs = BeautifulSoup(html, 'html.parser')
+    images = bs.find_all('img', {'src':re.compile('.jpg')})
+    for image in images:
+        img_urls.append(image['src'])
+    return img_urls[0]
+
+def location_scraper():
+    url = "https://coveragee.herokuapp.com/location"
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    print(soup.find_all(id="fips"))
+location_scraper()
