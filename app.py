@@ -1,9 +1,13 @@
 from flask import *
 app = Flask(__name__)
+import json
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    with open('path_to_file/person.json') as f:
+        data = json.load(f)
+        print (data['attributes']['test'])
+    return render_template("index.html", tester=tester)
 
 @app.route('/about')
 def about():
@@ -15,8 +19,8 @@ def donate():
 
 @app.route('/mobile')
 def mobile():
-    return render_template("mobile.html")   
+    return render_template("mobile.html")
 
-    
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
