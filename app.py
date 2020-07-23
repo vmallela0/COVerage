@@ -4,7 +4,7 @@ import json
 
 @app.route('/')
 def home():
-    with open('path_to_file/person.json') as f:
+    with open('corpus.json') as f:
         data = json.load(f)
         print (data['attributes']['test'])
     return render_template("index.html", tester=tester)
