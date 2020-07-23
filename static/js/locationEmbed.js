@@ -27,6 +27,13 @@ window.onload = function getLocation () {
 
 }
 
+
+'use strict';
+
+const fs = require('fs');
+
+
+
 function showPosition (position) {
   lat = position.coords.latitude
     long = position.coords.longitude

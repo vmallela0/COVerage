@@ -1,14 +1,14 @@
 {
-  "attributes": [
-    {
-      "test": "test"
+    "attributes": [
+      {
+        "test": "hello"
+      }
+    ],
+    "categories" : {
+          "politics": [],
+          "education": [],
+          "biology": [],
+          "economy": [],
+          "statistics": []
     }
-  ],
-  "categories" : {
-		"politics": [],
-		"education": [],
-		"biology": [],
-		"economy": [],
-		"statistics": []
   }
-}

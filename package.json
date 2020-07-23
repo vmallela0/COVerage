@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/vmallela0/covid-map/issues"
   },
-  "homepage": "https://github.com/vmallela0/covid-map#readme"
+  "homepage": "https://github.com/vmallela0/covid-map#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "fs": "0.0.1-security"
+  }
 }
