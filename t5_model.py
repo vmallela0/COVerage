@@ -22,7 +22,7 @@ tokenized_text = tokenizer.encode(t5_prepared_Text, return_tensors="pt").to(devi
 summary_ids = model.generate(tokenized_text,
                                     num_beams=4,
                                     no_repeat_ngram_size=2,
-                                    min_length=20,
+                                    min_length=50,
                                     max_length=100,
                                     early_stopping=True)
 
