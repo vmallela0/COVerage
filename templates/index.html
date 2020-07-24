@@ -7,6 +7,7 @@
             window.location = "{{ url_for('mobile') }}";
         }
     </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
     <meta name="description" content="Region-specific AI based news on the COVID-19 pandemic">
     <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
@@ -151,7 +152,6 @@
         .card {
             /*float: left;*/
             max-width: 33.333%;
-            padding: .75rem;
             margin-bottom: 2rem;
             border: 0;
             flex-basis: 33.333%;
@@ -205,19 +205,19 @@
         .autocomplete-items div {
             padding: 10px;
             cursor: pointer;
-            background-color: #fff; 
-            border-bottom: 1px solid #d4d4d4; 
+            background-color: #fff;
+            border-bottom: 1px solid #d4d4d4;
         }
 
         /*when hovering an item:*/
         .autocomplete-items div:hover {
-            background-color: #e9e9e9; 
+            background-color: #e9e9e9;
         }
 
         /*when navigating through the items using the arrow keys:*/
         .autocomplete-active {
-            background-color: DodgerBlue !important; 
-            color: #ffffff; 
+            background-color: DodgerBlue !important;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -239,17 +239,58 @@
                 <div class="container">
                     <div class="row" style="padding-left: 25px;">
                         <div class="card">
+
+                            <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                            <div class="card-body">
+                              <h4><b>Headline</b></h4>
+                              <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                                  <a href="">read more here</a>
+                              </p>
+                              <p><a href="https://www.stanford.edu">tag_1</a> <a href="https://www.stanford.edu">tag_2</a> <a href="https://www.stanford.edu">tag_3</a></p>
+                            </div>
+
+
+
+                        </div>
+                        <div class="card" style="margin-left: 10px;">
+                          <img class="card-img-top" src="https://sanjosespotlight.com/wp-content/uploads/2020/07/IMG_3717-scaled.jpg" alt="Card image cap">
+                          <div class="card-body">
                             <h4><b>Headline</b></h4>
                             <p class="card-text">Something about COVID-19, but just the sparknotes :)
                                 <a href="">read more here</a>
                             </p>
                             <p><a href="https://www.stanford.edu">tag_1</a> <a href="https://www.stanford.edu">tag_2</a> <a href="https://www.stanford.edu">tag_3</a></p>
-
+                          </div>
                         </div>
-                        <div class="card">
-                            <h4><b>Headline when it's multiple lines</b></h4>
-                            <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                        <div class="card" style="margin-left: 10px;">
+                          <img class="card-img-top" src="https://media.nbcbayarea.com/2019/09/GettyImages-1252878668.jpg?resize=850%2C478" alt="Card image cap">
+                          <div class="card-body">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                                <a href="">read more here</a>
+                            </p>
                             <p><a href="https://www.stanford.edu">tag_1</a> <a href="https://www.stanford.edu">tag_2</a> <a href="https://www.stanford.edu">tag_3</a></p>
+                          </div>
+                        </div>
+                        <div class="card" style="margin-left: 10px;">
+                          <img class="card-img-top" src="https://www.inquirer.com/resizer/ETlUoi2un3ifKC9QFRjzBrQuiVY=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/RZEBFV6A4NGBLPTOLK62ENNYRU.jpg" alt="Card image cap">
+                          <div class="card-body">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                                <a href="">read more here</a>
+                            </p>
+                            <p><a href="https://www.stanford.edu">tag_1</a> <a href="https://www.stanford.edu">tag_2</a> <a href="https://www.stanford.edu">tag_3</a></p>
+                          </div>
+                        </div>
+                        <div class="card" style="margin-left: 10px;">
+                          <img class="card-img-top" src="https://www.inquirer.com/resizer/ETlUoi2un3ifKC9QFRjzBrQuiVY=/1400x932/smart/arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/RZEBFV6A4NGBLPTOLK62ENNYRU.jpg" alt="Card image cap">
+                          <div class="card-body">
+                            <h4><b>Headline</b></h4>
+                            <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                                <a href="">read more here</a>
+                            </p>
+                            <p><a href="https://www.stanford.edu">tag_1</a> <a href="https://www.stanford.edu">tag_2</a> <a href="https://www.stanford.edu">tag_3</a></p>
+                          </div>
                         </div>
                         <div class="card">
                             <h4><b>Headline</b></h4>
