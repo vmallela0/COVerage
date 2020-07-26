@@ -242,7 +242,7 @@
     <section class="container">
         <div class="left-half">
             <article>
-                <h2 style="color: #8c1515; padding: 20px; line-height: 55px; font-size: 60px;" id="covid_nametag"></h2>
+                <h2 style="color: #8c1515; padding: 20px; line-height: 55px; font-size: 60px;">COVID-19 News In {{ lavaa['location']['location'][0] }}  County</h2>
                 <h2 style="color: #8c1515; font-size: large;" id="location_err"></h2>
                 <h2 style="color: black;">Policies</h2>
                 <div class="container">
@@ -532,10 +532,7 @@
         </div>
         <div class="right-half">
             <article>
-                <p id="embed"></p>
-                <script src="{{ url_for('static', filename='js/locationEmbed.js') }}">
-                </script>
-                <!-- <iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/06085" frameborder="0" scrolling="no"></iframe> -->
+                <div class="holds-the-iframe"><iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/{{ lavaa['location']['location'][1] }}" frameborder="0" scrolling="no" ></iframe></div>
                 <div class="holds-the-iframe"><iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/" frameborder="0" scrolling="yes"></iframe></iframe></div>
                 <p>
                     <a href="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/">Results from Stanford University’s Journalism and Democracy Initiative</a></p>

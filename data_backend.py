@@ -1,3 +1,5 @@
+from locate import *
+
 # data for index
 
 # declaring default values
@@ -44,7 +46,17 @@ url_economy_1 = url_economy_2 = url_economy_3 = url_economy_4 = url_economy_5 = 
 
 url_statistics_1 = url_statistics_2 = url_statistics_3 = url_statistics_4 = url_statistics_5 = "https://compression.stanford.edu/"
 
+county_name = get_county(get_location_data) 
+county_fips = get_fips(get_location_data)
+
 lavaa = {
+    "location":
+        {
+            "location": [
+                county_name, # county name
+                county_fips # county
+            ]
+        },
     "policies":
         {
             "url": [
