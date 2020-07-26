@@ -14,11 +14,14 @@ def get_location_data():
     fips_data = requests.get("https://geo.fcc.gov/api/census/area?lat=" + latitude + "&lon=" + longitude + "&format=json")
     fips_json = fips_data.json()
 
-    return fips_json.get('results')[0]
+    return [fips_json.get('results')[0].get('county_name'), fips_json.get('results')[0].get('county_fips')]
 
-def get_county(location_results):
-    return location_results().get('county_name')
+# def get_county(location_results):
+#     return location_results().get('county_name')
 
-def get_fips(location_results):
-    return location_results().get('county_fips')
+# def get_fips(location_results):
+#     return location_results().get('county_fips')
 
+# print(get_county(get_location_data()))
+# print(get_fips(get_location_data()))
+print(get_location_data())
