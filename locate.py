@@ -1,11 +1,13 @@
 import requests
+import ipinfo
+
 
 def get_location_data():
-    res = requests.get("https://ipinfo.io/")
-    data = res.json()
-    # print(data['loc'])
+    access_token = '99e3fb9229275a'
+    handler = ipinfo.getHandler(access_token)
+    details = handler.getDetails()
+    location = details.loc
 
-    location = data['loc']
     latitude = location.split(',')[0]
     longitude = location.split(',')[1]
 

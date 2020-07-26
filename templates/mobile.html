@@ -164,7 +164,7 @@
     </div>
 
     <!-- <h2 style="color: #8c1515; margin: 15px;">COVID-19 News in [San Jose]</h2> -->
-    <h2 style="color: #8c1515; padding: 20px; line-height: 55px;">{{ lavaa['location']['location'][0] }}</h2>
+    <h2 style="color: #8c1515; padding: 20px; line-height: 55px;">COVID-19 news in {{ lavaa['location']['location'][0] }} County</h2>
 
 
     <label style="font-size: x-large; font-family: 'Source Sans Pro', sans-serif; text-transform: none; line-height: 20px; padding-left: 10px;">Enter a your ZIP/city: <input style="width: 110px;"></label>
@@ -172,39 +172,33 @@
         <h2 class="cat">Policies</h2>
         <div class="row">
             <div class="card" style="padding-left: 40px;">
-                <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                <a href="{{ lavaa['policies']['url'][0] }}"><img class="card-img-top" src="{{ lavaa['policies']['image'][0] }}" alt="Card image cap"></a>
                 <h3><b>{{ lavaa['policies']['headlines'][0] }}</b></h3>
                 <p class="card-text">{{lavaa['policies']['text'][0]}}
                 </p>
             </div>
             <div class="card">
-                <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                <a href="{{ lavaa['policies']['url'][1] }}"><img class="card-img-top" src="{{ lavaa['policies']['image'][1] }}" alt="Card image cap"></a>
                 <h3><b>{{ lavaa['policies']['headlines'][1] }}</b></h3>
                 <p class="card-text">{{lavaa['policies']['text'][1]}}</p>
             </div>
 
             <div class="card">
-                <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                <a href="{{ lavaa['policies']['url'][2] }}"><img class="card-img-top" src="{{ lavaa['policies']['image'][2] }}" alt="Card image cap"></a>
                 <h3><b>{{ lavaa['policies']['headlines'][2] }}</b></h3>
                 <p class="card-text">{{lavaa['policies']['text'][2]}}
                 </p>
             </div>
             <div class="card">
-                <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                <a href="{{ lavaa['policies']['url'][3] }}"><img class="card-img-top" src="{{ lavaa['policies']['image'][3] }}" alt="Card image cap"></a>
                 <h3><b>{{ lavaa['policies']['headlines'][3] }}</b></h3>
                 <p class="card-text">{{lavaa['policies']['text'][3]}}</p>
             </div>
 
             <div class="card">
-                <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                <a href="{{ lavaa['policies']['url'][4] }}"><img class="card-img-top" src="{{ lavaa['policies']['image'][4] }}" alt="Card image cap"></a>
                 <h3><b>{{ lavaa['policies']['headlines'][4] }}</b></h3>
                 <p class="card-text">{{lavaa['policies']['text'][4]}}
-                </p>
-            </div>
-
-            <div class="card">
-                <h3><b>{{ lavaa['policies']['headlines'][5] }}</b></h3>
-                <p class="card-text">{{lavaa['policies']['text'][5]}}
                 </p>
             </div>
         </div>

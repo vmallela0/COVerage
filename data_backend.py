@@ -47,7 +47,9 @@ url_economy_1 = url_economy_2 = url_economy_3 = url_economy_4 = url_economy_5 = 
 url_statistics_1 = url_statistics_2 = url_statistics_3 = url_statistics_4 = url_statistics_5 = "https://compression.stanford.edu/"
 
 county_name = get_county(get_location_data) 
+# print(county_name)
 county_fips = get_fips(get_location_data)
+# print(county_fips)
 
 lavaa = {
     "location":
