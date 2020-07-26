@@ -1,3 +1,4 @@
+
 def searcher(county, category):
     from googlesearch import search
     query = county + " covid-19 " + category + " news"
@@ -12,4 +13,4 @@ def searcher(county, category):
         urls.append(url)
     return urls
 
-searcher("Santa Clara County", "Economy")
+print(searcher("Santa Clara County", "Economy")) # testing

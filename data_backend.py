@@ -22,7 +22,7 @@ text_economy_1 = text_economy_2 = text_economy_3 = text_economy_4 = text_economy
 
 text_statistics_1 = text_statistics_2 = text_statistics_3 = text_statistics_4 = text_statistics_5 = "text about statistics"
 
-#images
+# images
 img_policies_1 = img_policies_2 = img_policies_3 = img_policies_4 = img_policies_5 = "https://imgur.com/lNhUEmK.png"
 
 img_education_1 = img_education_2 = img_education_3 = img_education_4 = img_education_5 = "https://imgur.com/KiDWiTr.png"
@@ -33,9 +33,27 @@ img_economy_1 = img_economy_2 = img_economy_3 = img_economy_4 = img_economy_5 = 
 
 img_statistics_1 = img_statistics_2 = img_statistics_3 = img_statistics_4 = img_statistics_5 = "https://imgur.com/8IzNJTT.png"
 
+# urls
+url_policies_1 = url_policies_2 = url_policies_3 = url_policies_4 = url_policies_5 = "https://compression.stanford.edu/"
+
+url_education_1 = url_education_2 = url_education_3 = url_education_4 = url_education_5 = "https://compression.stanford.edu/"
+
+url_biology_1 = url_biology_2 = url_biology_3 = url_biology_4 = url_biology_5 = "https://compression.stanford.edu/"
+
+url_economy_1 = url_economy_2 = url_economy_3 = url_economy_4 = url_economy_5 = "https://compression.stanford.edu/"
+
+url_statistics_1 = url_statistics_2 = url_statistics_3 = url_statistics_4 = url_statistics_5 = "https://compression.stanford.edu/"
+
 lavaa = {
     "policies":
         {
+            "url": [
+                url_policies_1,
+                url_policies_2,
+                url_policies_3,
+                url_policies_4,
+                url_policies_5
+            ],
             "image": [
                 img_policies_1,
                 img_policies_2,
@@ -61,6 +79,13 @@ lavaa = {
         },
     "education":
         {
+            "url": [
+                url_education_1,
+                url_education_2,
+                url_education_3,
+                url_education_4,
+                url_education_5
+            ],
             "image": [
                 img_education_1,
                 img_education_2,
@@ -86,6 +111,13 @@ lavaa = {
         },
     "biology":
         {
+            "url": [
+                url_biology_1,
+                url_biology_2,
+                url_biology_3,
+                url_biology_4,
+                url_biology_5
+            ],
             "image": [
                 img_biology_1,
                 img_biology_2,
@@ -112,6 +144,13 @@ lavaa = {
         },
     "economy":
         {
+            "url": [
+                url_economy_1,
+                url_economy_2,
+                url_economy_3,
+                url_economy_4,
+                url_economy_5
+            ],
             "image": [
                 img_economy_1,
                 img_economy_2,
@@ -137,6 +176,13 @@ lavaa = {
         },
     "statistics":
         {
+            "url": [
+                url_statistics_1,
+                url_statistics_2,
+                url_statistics_3,
+                url_statistics_4,
+                url_statistics_5
+            ],
             "image": [
                 img_statistics_1,
                 img_statistics_2,

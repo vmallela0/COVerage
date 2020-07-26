@@ -1,2 +1,0 @@
-
-subjectNeg = 0
