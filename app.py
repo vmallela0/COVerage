@@ -15,6 +15,7 @@ def home():
         "index.html",
         lavaa = lavaa
     )
+    
 
 @app.route('/about')
 def about():
@@ -26,7 +27,10 @@ def donate():
 
 @app.route('/mobile')
 def mobile():
-    return render_template("mobile.html")
+    return render_template(
+        "mobile.html",
+        lavaa = lavaa
+        )
 
 @app.route('/location')
 def location():

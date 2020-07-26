@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
     <meta name="description" content="Region-specific AI based news on the COVID-19 pandemic (Mobile version)">
     <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon-32x32.png') }}">
@@ -78,6 +79,7 @@
             font-family: 'Source Serif Pro', serif;
             letter-spacing: -1px;
             line-height: 25px;
+            margin-bottom: 5px;
         }
 
         h3 {
@@ -170,34 +172,39 @@
         <h2 class="cat">Policies</h2>
         <div class="row">
             <div class="card" style="padding-left: 40px;">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                <h3><b>{{ lavaa['policies']['headlines'][0] }}</b></h3>
+                <p class="card-text">{{lavaa['policies']['text'][0]}}
                 </p>
             </div>
             <div class="card">
-                <h3><b>Headline when it's multiple lines</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                <h3><b>{{ lavaa['policies']['headlines'][1] }}</b></h3>
+                <p class="card-text">{{lavaa['policies']['text'][1]}}</p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                <h3><b>{{ lavaa['policies']['headlines'][2] }}</b></h3>
+                <p class="card-text">{{lavaa['policies']['text'][2]}}
                 </p>
             </div>
             <div class="card">
-                <h3><b>Headline when it's multiple lines</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                <h3><b>{{ lavaa['policies']['headlines'][3] }}</b></h3>
+                <p class="card-text">{{lavaa['policies']['text'][3]}}</p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <img class="card-img-top" src="https://www.wpusa.org/images/updates/icon_sjpaidsick_1x.jpg" alt="Card image cap">
+                <h3><b>{{ lavaa['policies']['headlines'][4] }}</b></h3>
+                <p class="card-text">{{lavaa['policies']['text'][4]}}
                 </p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['policies']['headlines'][5] }}</b></h3>
+                <p class="card-text">{{lavaa['policies']['text'][5]}}
                 </p>
             </div>
         </div>
@@ -205,34 +212,34 @@
         <h2 class="cat">Education</h2>
         <div class="row">
             <div class="card" style="padding-left: 40px;">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['education']['headlines'][0] }}</b></h3>
+                <p class="card-text">{{lavaa['education']['text'][0]}}
                 </p>
             </div>
             <div class="card">
-                <h3><b>Headline when it's multiple lines</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                <h3><b>{{ lavaa['education']['headlines'][1] }}</b></h3>
+                <p class="card-text">{{lavaa['education']['text'][1]}}</p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['education']['headlines'][2] }}</b></h3>
+                <p class="card-text">{{lavaa['education']['text'][2]}}
                 </p>
             </div>
             <div class="card">
-                <h3><b>Headline when it's multiple lines</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                <h3><b>{{ lavaa['education']['headlines'][3] }}</b></h3>
+                <p class="card-text">{{lavaa['education']['text'][3]}}</p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['education']['headlines'][4] }}</b></h3>
+                <p class="card-text">{{lavaa['education']['text'][4]}}
                 </p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['education']['headlines'][5] }}</b></h3>
+                <p class="card-text">{{lavaa['education']['text'][5]}}
                 </p>
             </div>
         </div>
@@ -240,34 +247,34 @@
         <h2 class="cat">Biology</h2>
         <div class="row">
             <div class="card" style="padding-left: 40px;">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['biology']['headlines'][0] }}</b></h3>
+                <p class="card-text">{{lavaa['biology']['text'][0]}}
                 </p>
             </div>
             <div class="card">
-                <h3><b>Headline when it's multiple lines</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                <h3><b>{{ lavaa['biology']['headlines'][1] }}</b></h3>
+                <p class="card-text">{{lavaa['biology']['text'][1]}}</p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['biology']['headlines'][2] }}</b></h3>
+                <p class="card-text">{{lavaa['biology']['text'][2]}}
                 </p>
             </div>
             <div class="card">
-                <h3><b>Headline when it's multiple lines</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                <h3><b>{{ lavaa['biology']['headlines'][3] }}</b></h3>
+                <p class="card-text">{{lavaa['biology']['text'][3]}}</p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['biology']['headlines'][4] }}</b></h3>
+                <p class="card-text">{{lavaa['biology']['text'][4]}}
                 </p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['biology']['headlines'][5] }}</b></h3>
+                <p class="card-text">{{lavaa['biology']['text'][5]}}
                 </p>
             </div>
         </div>
@@ -275,34 +282,34 @@
         <h2 class="cat">Economy</h2>
         <div class="row">
             <div class="card" style="padding-left: 40px;">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['economy']['headlines'][0] }}</b></h3>
+                <p class="card-text">{{lavaa['economy']['text'][0]}}
                 </p>
             </div>
             <div class="card">
-                <h3><b>Headline when it's multiple lines</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                <h3><b>{{ lavaa['economy']['headlines'][1] }}</b></h3>
+                <p class="card-text">{{lavaa['economy']['text'][1]}}</p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['economy']['headlines'][2] }}</b></h3>
+                <p class="card-text">{{lavaa['economy']['text'][2]}}
                 </p>
             </div>
             <div class="card">
-                <h3><b>Headline when it's multiple lines</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                <h3><b>{{ lavaa['economy']['headlines'][3] }}</b></h3>
+                <p class="card-text">{{lavaa['economy']['text'][3]}}</p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['economy']['headlines'][4] }}</b></h3>
+                <p class="card-text">{{lavaa['economy']['text'][4]}}
                 </p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['economy']['headlines'][5] }}</b></h3>
+                <p class="card-text">{{lavaa['economy']['text'][5]}}
                 </p>
             </div>
         </div>
@@ -310,39 +317,39 @@
         <h2 class="cat">Statistics</h2>
         <div class="row">
             <div class="card" style="padding-left: 40px;">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['statistics']['headlines'][0] }}</b></h3>
+                <p class="card-text">{{lavaa['statistics']['text'][0]}}
                 </p>
             </div>
             <div class="card">
-                <h3><b>Headline when it's multiple lines</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                <h3><b>{{ lavaa['statistics']['headlines'][1] }}</b></h3>
+                <p class="card-text">{{lavaa['statistics']['text'][1]}}</p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['statistics']['headlines'][2] }}</b></h3>
+                <p class="card-text">{{lavaa['statistics']['text'][2]}}
                 </p>
             </div>
             <div class="card">
-                <h3><b>Headline when it's multiple lines</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)</p>
+                <h3><b>{{ lavaa['statistics']['headlines'][3] }}</b></h3>
+                <p class="card-text">{{lavaa['statistics']['text'][3]}}</p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['statistics']['headlines'][4] }}</b></h3>
+                <p class="card-text">{{lavaa['statistics']['text'][4]}}
                 </p>
             </div>
 
             <div class="card">
-                <h3><b>Headline</b></h3>
-                <p class="card-text">Something about COVID-19, but just the sparknotes :)
+                <h3><b>{{ lavaa['statistics']['headlines'][5] }}</b></h3>
+                <p class="card-text">{{lavaa['statistics']['text'][5]}}
                 </p>
             </div>
         </div>
-        <script src="{{ url_for('static', filename='js/locationEmbed.js') }}">
-        </script>
+        <!-- <script src="{{ url_for('static', filename='js/locationEmbed.js') }}">
+        </script> -->
         <h2 style="text-align: left; ">
             <a href="{{ url_for('donate') }}" style="font-size: xx-large; text-align: left;"><b>Click here to donate</b></a></h2>
         <!-- <iframe style="width: 100%; height: 805px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/" frameborder="0" scrolling="yes"></iframe> -->
