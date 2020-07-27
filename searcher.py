@@ -23,8 +23,9 @@ def export_search(county, cats, search_dict):
         search_dict[i].append(searcher(county, i))
     return search_dict
 
-print(export_search("Santa Clara County, CA", cat_list, search_export)['policies'])
-print(export_search("Santa Clara County, CA", cat_list, search_export)['education'])
-print(export_search("Santa Clara County, CA", cat_list, search_export)['biology'])
-print(export_search("Santa Clara County, CA", cat_list, search_export)['economy'])
-print(export_search("Santa Clara County, CA", cat_list, search_export)['statistics'])
+# print(export_search("Santa Clara County, CA", cat_list, search_export)['policies'])
+# print(export_search("Santa Clara County, CA", cat_list, search_export)['education'])
+# print(export_search("Santa Clara County, CA", cat_list, search_export)['biology'])
+# print(export_search("Santa Clara County, CA", cat_list, search_export)['economy'])
+# print(export_search("Santa Clara County, CA", cat_list, search_export)['statistics'])
+
