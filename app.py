@@ -3,13 +3,15 @@ app = Flask(__name__)
 import json
 from data_backend import *
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def home():
     with open('corpus.json') as f:
         data = json.load(f)
         print (data['attributes'][0]['test'])
         tester = data['attributes'][0]['test']
 
+    if request.method == 'POST':
+        location = request.form['location']
 
     return render_template(
         "index.html",
