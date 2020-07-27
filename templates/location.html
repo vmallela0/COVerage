@@ -16,6 +16,11 @@
         <p id="state"></p>
         <p id="embed"></p>
 
+        <form action="http://127.0.0.1:5000/" id="main_input">
+            <label for="location">Enter your county:</label><br>
+            <input type="text" id="county_post" name="county_post" value="San Jose County"><br>
+            <input type="submit" value="Submit">
+        </form>
     </body>
 
 
@@ -79,9 +84,11 @@
                 state.innerHTML = "State:  " + response.results[0].state_name
                 fips.innerHTML = "FIPS:  " + response.results[0].county_fips
                 // embed_county.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/' + response.results[0].county_fips + '"frameborder="0" scrolling="no"></iframe>'
+                document.getElementById("county_post").value = response.results[0].county_name;
             });
         }
     </script>
+    
 </head>
 
 

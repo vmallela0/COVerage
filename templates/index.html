@@ -242,7 +242,7 @@
     <section class="container">
         <div class="left-half">
             <article>
-                <h2 style="color: #8c1515; padding: 20px; line-height: 55px; font-size: 60px;">COVID-19 News In {{ lavaa['location']['location'][0] }}  County</h2>
+                <h2 style="color: #8c1515; padding: 20px; line-height: 55px; font-size: 60px;" id="covid_nametag"></h2>
                 <h2 style="color: #8c1515; font-size: large;" id="location_err"></h2>
                 <h2 style="color: black;">Policies</h2>
                 <div class="container">
@@ -532,16 +532,24 @@
         </div>
         <div class="right-half">
             <article>
-                <div class="holds-the-iframe"><iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/{{ lavaa['location']['location'][1] }}" frameborder="0" scrolling="no" ></iframe></div>
+                <p id="embed"></p>
+                
                 <div class="holds-the-iframe"><iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/" frameborder="0" scrolling="yes"></iframe></iframe></div>
                 <p>
                     <a href="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/">Results from Stanford University’s Journalism and Democracy Initiative</a></p>
                 <br><br>
+                <form action="/" id="main_post">
+                    <label for="location">Enter your county:</label><br>
+                    <input type="text" id="county_post" name="location" value="San Jose County"><br>
+                    <input type="submit" value="Submit">
+                </form>
                 <h2 style="color: #8c1515;">About us</h2>
                 <p style="text-align: center; line-height: 20px;">
                     Recognizing the effects of COVID-19 on a global and local scale, COVerage is a website and mobile app that delivers up-to-date and location specific news directly to you. We aim to make the most relevant information easily accessible in just a few clicks.
                 <a href="{{ url_for('about') }}" style="font-size: larger;"><b>read more here</b></a></p>
                 <br><br>
+                <script src="{{ url_for('static', filename='js/locationEmbed.js') }}">
+                </script>
         </div>
     </section>
 </body>
