@@ -1,6 +1,6 @@
 # data for index => feeds data from searcher.py and model
 
-from searcher import *
+
 
 # declaring default values
 headline_policies_1 = headline_policies_2 = headline_policies_3 = headline_policies_4 = headline_policies_5 = "Policies default"
@@ -348,7 +348,7 @@ lavaa = {
 
 
 # search => urls
-
+"""
 def url_upload(category): # TODO: integrte location and change the param
     results = export_search("Santa Clara County, CA", cat_list, search_export)[category]
     for url in results:
@@ -357,3 +357,5 @@ def url_upload(category): # TODO: integrte location and change the param
 
 for i in cat_list:
     url_upload(i)
+
+"""
