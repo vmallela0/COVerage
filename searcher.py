@@ -1,6 +1,6 @@
+from googlesearch import search
 
 def searcher(county, category):
-    from googlesearch import search
     query = county + " covid-19 " + category + " news"
     urls = []
     for url in search(
