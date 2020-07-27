@@ -13,7 +13,7 @@ window.onload = function getLocation() {
 			console.log(
 				"LOCATION ACCESS GRANTED \nLatitude: " + lat + "\nLongitude: " + long
 			);
-			fips_lookup(lat, long);
+      fips_lookup(lat, long);
 		},
 		function (error) {
 			// handles location access denied => defaults location to stanford
@@ -44,7 +44,13 @@ function showPosition(position) {
 	fips_lookup();
 }
 
-var main_breaker = 0;
+function wait(ms){
+  var start = new Date().getTime();
+  var end = start;
+  while(end < start + ms) {
+    end = new Date().getTime();
+ }
+}
 
 function fips_lookup(geolat, geolong) {
 	// feeding in long and lat to convert into FIPS and county
@@ -64,21 +70,11 @@ function fips_lookup(geolat, geolong) {
 
 	// reading in json object and extracting fips, county and state
 	$.ajax(settings).done(function (response) {
-		console.log(response);
-		covid_nametag.innerHTML =
-			"COVID-19 News In " +
-			response.results[0].county_name +
-			" County, " +
-			response.results[0].state_code;
-		document.getElementById("county_post").value =
-			response.results[0].county_name +
-			" County, " +
-			response.results[0].state_code;
+    // console.log(response);
+    document.getElementById("location").value = response.results[0].county_name + " County, " + response.results[0].state_code;
+		covid_nametag.innerHTML = "COVID-19 News In " + response.results[0].county_name + " County, " + response.results[0].state_code;
+		embed_county.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/' + response.results[0].county_fips + '"frameborder="0" scrolling="yes"></iframe>';
+    
     // document.getElementById("main_post").submit()
-
-		embed_county.innerHTML =
-			'<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/' +
-			response.results[0].county_fips +
-			'"frameborder="0" scrolling="yes"></iframe>';
-	});
+  });
 }
