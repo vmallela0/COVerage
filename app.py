@@ -18,7 +18,7 @@ def home():
         "index.html",
         lavaa = lavaa
     )
-    
+
 
 @app.route('/about')
 def about():
