@@ -4,3 +4,4 @@ gunicorn
 requests
 ipinfo
 google-search==1.0.2
+google==3.0.0
