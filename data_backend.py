@@ -1,6 +1,4 @@
-from locate import *
-
-# data for index
+# data for index => feeds data from searcher.py and model
 
 # declaring default values
 headline_policies_1 = headline_policies_2 = headline_policies_3 = headline_policies_4 = headline_policies_5 = "Policies default"
@@ -46,19 +44,39 @@ url_economy_1 = url_economy_2 = url_economy_3 = url_economy_4 = url_economy_5 = 
 
 url_statistics_1 = url_statistics_2 = url_statistics_3 = url_statistics_4 = url_statistics_5 = "https://compression.stanford.edu/"
 
-county_name = get_location_data()[0]
-# print(county_name)
-county_fips = get_location_data()[1]
-# print(county_fips)
+# tag names
+tag1_policies_1 = tag1_policies_2 = tag1_policies_3 = tag1_policies_4 = tag1_policies_5 = "policies tag1"
+
+tag1_education_1 = tag1_education_2 = tag1_education_3 = tag1_education_4 = tag1_education_5 = "edu tag1"
+
+tag1_biology_1 = tag1_biology_2 = tag1_biology_3 = tag1_biology_4 = tag1_biology_5 = "bio tag1"
+
+tag1_economy_1 = tag1_economy_2 = tag1_economy_3 = tag1_economy_4 = tag1_economy_5 = "econ tag1"
+
+tag1_statistics_1 = tag1_statistics_2 = tag1_statistics_3 = tag1_statistics_4 = tag1_statistics_5 = "stat tag1"
+
+tag2_policies_1 = tag2_policies_2 = tag2_policies_3 = tag2_policies_4 = tag2_policies_5 = "policies tag2"
+
+tag2_education_1 = tag2_education_2 = tag2_education_3 = tag2_education_4 = tag2_education_5 = "edu tag2"
+
+tag2_biology_1 = tag2_biology_2 = tag2_biology_3 = tag2_biology_4 = tag2_biology_5 = "bio tag2"
+
+tag2_economy_1 = tag2_economy_2 = tag2_economy_3 = tag2_economy_4 = tag2_economy_5 = "econ tag2"
+
+tag2_statistics_1 = tag2_statistics_2 = tag2_statistics_3 = tag2_statistics_4 = tag2_statistics_5 = "stat tag2"
+
+tag3_policies_1 = tag3_policies_2 = tag3_policies_3 = tag3_policies_4 = tag3_policies_5 = "policies tag3"
+
+tag3_education_1 = tag3_education_2 = tag3_education_3 = tag3_education_4 = tag3_education_5 = "edu tag3"
+
+tag3_biology_1 = tag3_biology_2 = tag3_biology_3 = tag3_biology_4 = tag3_biology_5 = "bio tag3"
+
+tag3_economy_1 = tag3_economy_2 = tag3_economy_3 = tag3_economy_4 = tag3_economy_5 = "econ tag3"
+
+tag3_statistics_1 = tag3_statistics_2 = tag3_statistics_3 = tag3_statistics_4 = tag3_statistics_5 = "stat tag3"
+
 
 lavaa = {
-    "location":
-        {
-            "location": [
-                county_name, # county name
-                county_fips # county
-            ]
-        },
     "policies":
         {
             "url": [
@@ -89,6 +107,27 @@ lavaa = {
                 headline_policies_4,
                 headline_policies_5
             ],
+            "tags": [
+                tag1_policies_1,
+                tag2_policies_1,
+                tag3_policies_1,
+
+                tag1_policies_2,
+                tag2_policies_2,
+                tag3_policies_2,
+
+                tag1_policies_3,
+                tag2_policies_3,
+                tag3_policies_3,
+
+                tag1_policies_4,
+                tag2_policies_4,
+                tag3_policies_4,
+
+                tag1_policies_5,  
+                tag2_policies_5,
+                tag3_policies_5,
+            ]
 
         },
     "education":
@@ -121,6 +160,27 @@ lavaa = {
                 headline_education_4,
                 headline_education_5
             ],
+            "tags": [
+                tag1_education_1,
+                tag2_education_1,
+                tag3_education_1,
+
+                tag1_education_2,
+                tag2_education_2,
+                tag3_education_2,
+
+                tag1_education_3,
+                tag2_education_3,
+                tag3_education_3,
+
+                tag1_education_4,
+                tag2_education_4,
+                tag3_education_4,
+
+                tag1_education_5,  
+                tag2_education_5,
+                tag3_education_5,
+            ]
 
         },
     "biology":
@@ -154,6 +214,27 @@ lavaa = {
                 headline_biology_4,
                 headline_biology_5
             ],
+            "tags": [
+                tag1_biology_1,
+                tag2_biology_1,
+                tag3_biology_1,
+
+                tag1_biology_2,
+                tag2_biology_2,
+                tag3_biology_2,
+
+                tag1_biology_3,
+                tag2_biology_3,
+                tag3_biology_3,
+
+                tag1_biology_4,
+                tag2_biology_4,
+                tag3_biology_4,
+
+                tag1_biology_5,  
+                tag2_biology_5,
+                tag3_biology_5,
+            ]
 
         },
     "economy":
@@ -186,6 +267,27 @@ lavaa = {
                 headline_economy_4,
                 headline_economy_5
             ],
+            "tags": [
+                tag1_economy_1,
+                tag2_economy_1,
+                tag3_economy_1,
+
+                tag1_economy_2,
+                tag2_economy_2,
+                tag3_economy_2,
+
+                tag1_economy_3,
+                tag2_economy_3,
+                tag3_economy_3,
+
+                tag1_economy_4,
+                tag2_economy_4,
+                tag3_economy_4,
+
+                tag1_economy_5,  
+                tag2_economy_5,
+                tag3_economy_5,
+            ]
 
         },
     "statistics":
@@ -218,6 +320,27 @@ lavaa = {
                 headline_statistics_4,
                 headline_statistics_5
             ],
+            "tags": [
+                tag1_statistics_1,
+                tag2_statistics_1,
+                tag3_statistics_1,
+
+                tag1_statistics_2,
+                tag2_statistics_2,
+                tag3_statistics_2,
+
+                tag1_statistics_3,
+                tag2_statistics_3,
+                tag3_statistics_3,
+
+                tag1_statistics_4,
+                tag2_statistics_4,
+                tag3_statistics_4,
+
+                tag1_statistics_5,  
+                tag2_statistics_5,
+                tag3_statistics_5,
+            ]
 
         }
 }

@@ -5,13 +5,14 @@ from data_backend import *
 
 @app.route('/', methods=['GET','POST'])
 def home():
-    with open('corpus.json') as f:
-        data = json.load(f)
-        print (data['attributes'][0]['test'])
-        tester = data['attributes'][0]['test']
+    # with open('corpus.json') as f:
+    #     data = json.load(f)
+    #     print (data['attributes'][0]['test'])
+    #     tester = data['attributes'][0]['test']
 
     if request.method == 'POST':
         location = request.form['location']
+        print(location)
 
     return render_template(
         "index.html",
