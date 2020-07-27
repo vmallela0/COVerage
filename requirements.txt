@@ -1,7 +1,5 @@
 beautifulsoup4==4.6.0
 Flask==1.0.2
-gunicorn
-requests
-ipinfo
+gunicorn==20.0.4
+requests==2.22.0
 google-search==1.0.2
-google==3.0.0
