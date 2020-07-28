@@ -180,9 +180,9 @@
     </div>
 
     <h1>¡Error!</h1>
-    <h2 style="line-height: 35px;">Sorry we couldn't find that for you. <br> <a href="mailto:me@vmallela.com">Contact us here and we'll fix it :)</a></h2>
+    <h2 style="line-height: 35px;">Sorry we couldn't find that for you. <br> <a href="{{ url_for('team') }}">Contact us here and we'll fix it :)</a></h2>
     <img src="{{ url_for('static', filename = 'img/volcano.png') }}" class="center">
-    <h2 style="line-height: 35px;"><br> <a href="./index.html">Click here to return home</a></h2>
+    <h2 style="line-height: 35px;"><br> <a href="{{ url_for('home') }}">Click here to return home</a></h2>
 
     <style>
         .goo {
