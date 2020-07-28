@@ -17,7 +17,8 @@ def searcher(county, state, category):
             anchor = i.find_all('a')
             if anchor:
                 myurl = anchor[0]['href']
-                urls.append(myurl)
+                if ((".org" not in myurl) and (".gov" not in myurl)):
+                    urls.append(myurl)
         return urls[:5]
 
 searcher("Santa Clara", "CA", "policies") # example query
