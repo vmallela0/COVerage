@@ -5,18 +5,14 @@ from data_backend import *
 
 @app.route('/', methods=['GET','POST'])
 def home():
-    # with open('corpus.json') as f:
-    #     data = json.load(f)
-    #     print (data['attributes'][0]['test'])
-    #     tester = data['attributes'][0]['test']
     if request.method == 'POST':
         jsdata = request.form
-        print(jsdata['county_name'])
-        print(jsdata['state_code'])
-
+        county_name = jsdata['county_name']
+        state_code = jsdata['state_code']
+        send_urls(county_name, state_code),
 
     return render_template(
-        "index.html",
+        "index.html",   
         lavaa = lavaa
     )
 

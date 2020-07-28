@@ -347,14 +347,12 @@ lavaa = {
 
 
 # search => urls
-"""
-def url_upload(category): # TODO: integrte location and change the param
-    results = export_search("Santa Clara County, CA", cat_list, search_export)[category]
-    for url in results:
-        for i in range(5):
-            lavaa[category]['url'][i] = url[i]
+def send_urls(county_name, state_code):
+    cat_urls = {}
+    cat_list = ['policies', 'education', 'biology','economy', 'statistics']
+    for i in cat_list:
+        cat_urls[i] = searcher(county_name, state_code, i)
+        lavaa['policies']['url'] = cat_urls['policies']
+# lavaa['policies']['url'] = cat_urls['policies']
 
-for i in cat_list:
-    url_upload(i)
-
-"""
+send_urls("Fulton", "GA")
