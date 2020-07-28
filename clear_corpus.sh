@@ -1,9 +1,8 @@
 echo '{
-    "attributes": [
-      {
-        "test": "hello"
-      }
-    ],
+    "attributes": {
+        "county": "", 
+        "state_code": ""
+      },
     "categories" : {
           "politics": [],
           "education": [],

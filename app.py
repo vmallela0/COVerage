@@ -9,12 +9,11 @@ def home():
     #     data = json.load(f)
     #     print (data['attributes'][0]['test'])
     #     tester = data['attributes'][0]['test']
-
     if request.method == 'POST':
-        # location = request.form['location']
-        # print(location)
         jsdata = request.form
-        print(jsdata)
+        print(jsdata['county_name'])
+        print(jsdata['state_code'])
+
 
     return render_template(
         "index.html",
@@ -40,6 +39,10 @@ def mobile():
 @app.route('/location')
 def location():
     return render_template("location.html")
+
+@app.route('/team')
+def team():
+    return render_template("team.html")
 
 
 if __name__ == '__main__':

@@ -1,6 +1,5 @@
 # data for index => feeds data from searcher.py and model
-
-
+from searchinator import *
 
 # declaring default values
 headline_policies_1 = headline_policies_2 = headline_policies_3 = headline_policies_4 = headline_policies_5 = "Policies default"

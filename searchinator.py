@@ -6,6 +6,7 @@ USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100
 
 def searcher(county, category):
     google_query = (county + " covid-19 " + category + " news").replace(' ', '+')
+    # print(google_query)
     url = "https://google.com/search?q=" + google_query
     headers = {"user-agent": USER_AGENT}
     resp = requests.get(url, headers=headers)
@@ -15,6 +16,8 @@ def searcher(county, category):
         for i in soup.find_all('div', class_='r'):
             anchor = i.find_all('a')
             if anchor:
-                myurl = anchors[0]['href']
+                myurl = anchor[0]['href']
                 urls.append(myurl)
         return urls[:5]
+
+cat_list = ['policies', 'education', 'biology','economy', 'statistics']
