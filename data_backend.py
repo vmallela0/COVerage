@@ -1,6 +1,7 @@
 # data for index => feeds data from searcher.py and model
 from searchinator import *
 from flask import *
+from scraper import *
 app = Flask(__name__)
 
 # declaring default values
@@ -362,8 +363,7 @@ def send_urls(county_name, state_code):
     cat_list = ['policies', 'education', 'biology','economy', 'statistics']
     for i in cat_list:
         lavaa[i]['url'] = searcher(county_name, state_code, i)
+        # lavaa[i]['image'] = img_scrape(lavaa[i]['url'])
 
-# lavaa['policies']['url'] = cat_urls['policies']
-
-# send_urls("Santa Clara", "CA")
+# send_urls("Santa Clara", "CA") #! use this for testing
 # print(lavaa)

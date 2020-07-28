@@ -144,11 +144,12 @@ def img_scraper(url):
     images = bs.find_all('img', {'src':re.compile('.jpg')})
     for image in images:
         img_urls.append(image['src'])
+    if img_urls == []: 
+        return ""
     return img_urls[0]
 
-def location_scraper():
-    url = "https://coveragee.herokuapp.com/location"
-    page = requests.get(url)
-    soup = BeautifulSoup(page.content, 'html.parser')
-    print(soup.find_all(id="fips"))
-location_scraper()
+def img_scrape(url_list):
+    arrayinator = []
+    for url in url_list:
+        img_scraper(url)
+    return arrayinator

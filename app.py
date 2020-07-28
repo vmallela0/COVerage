@@ -3,9 +3,6 @@ app = Flask(__name__)
 import json
 from data_backend import *
 
-
-
-
 @app.route('/about')
 def about():
     return render_template("about.html")
