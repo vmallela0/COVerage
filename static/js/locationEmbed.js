@@ -31,8 +31,9 @@ window.onload = function getLocation() {
 					"default latitude: " + lat + "\ndefault longitude: " + long
 				);
 				fips_lookup(lat, long);
-				location_err.innerHTML =
-					"Location access was denied. Defaulted location to Stanford, CA";
+        location_err.innerHTML =
+          "Location access was denied. Defaulted location to San Diego, CA";
+					// "Location access was denied. Defaulted location to Stanford, CA";
 				userlocation.innerHTML = "COVID-19 News in ";
 			}
     }
@@ -71,7 +72,7 @@ function fips_lookup(geolat, geolong) {
 
 	// reading in json object and extracting fips, county and state
 	$.ajax(settings).done(function (response) {
-    // console.log(response);
+    console.log(response);
     document.getElementById("location").value = response.results[0].county_name + " County, " + response.results[0].state_code;
     covid_nametag.innerHTML = "COVID-19 News In " + response.results[0].county_name + " County, " + response.results[0].state_code;
     
