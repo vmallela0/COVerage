@@ -3,18 +3,7 @@ app = Flask(__name__)
 import json
 from data_backend import *
 
-@app.route('/', methods=['GET','POST'])
-def home():
-    if request.method == 'POST':
-        jsdata = request.form
-        county_name = jsdata['county_name']
-        state_code = jsdata['state_code']
-        send_urls(county_name, state_code),
 
-    return render_template(
-        "index.html",   
-        lavaa = lavaa
-    )
 
 
 @app.route('/about')

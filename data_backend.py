@@ -1,5 +1,7 @@
 # data for index => feeds data from searcher.py and model
 from searchinator import *
+from flask import *
+app = Flask(__name__)
 
 # declaring default values
 headline_policies_1 = headline_policies_2 = headline_policies_3 = headline_policies_4 = headline_policies_5 = "Policies default"
@@ -344,15 +346,24 @@ lavaa = {
             ]
         }
 }
+@app.route('/', methods=['GET','POST'])
+def home():
+    if request.method == 'POST':
+        jsdata = request.form
+        send_urls(jsdata['county_name'] , jsdata['state_code']),
 
+    return render_template(
+        "index.html",   
+        lavaa = lavaa
+    )
 
 # search => urls
 def send_urls(county_name, state_code):
-    cat_urls = {}
     cat_list = ['policies', 'education', 'biology','economy', 'statistics']
     for i in cat_list:
-        cat_urls[i] = searcher(county_name, state_code, i)
-        lavaa['policies']['url'] = cat_urls['policies']
+        lavaa[i]['url'] = searcher(county_name, state_code, i)
+
 # lavaa['policies']['url'] = cat_urls['policies']
 
-send_urls("Fulton", "GA")
+# send_urls("Santa Clara", "CA")
+# print(lavaa)
