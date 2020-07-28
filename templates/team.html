@@ -188,8 +188,8 @@
 
   <table style="width:60%; margin-left:auto;margin-right:auto;">
 <tr>
-  <th><img src="../assets/profile_images/vedu.jpg" alt="Lena" width="200" height="200"></th>
-  <th><img src="../assets/profile_images/aadit.png" alt="Annie" width="200" height="200"></th>
+  <th><img src="{{url_for('static', filename='img/vedu.png')}}" alt="Lena" width="200" height="200"></th>
+  <th><img src="{{url_for('static', filename='img/aadit.png')}}" alt="Annie" width="200" height="200"></th>
 </tr>
 <tr>
   <th><h2 style="letter-spacing: .3px; font-size: 30px; margin: 5px;">Lena Pang</h2></th>
@@ -205,7 +205,7 @@
   </h4></th>
 </tr></table>
 
-    <img src="../assets/volcano.png" class="center">
+    <img src="{{url_for('static', filename='img/volcano.png')}}" class="center">
 
     <h2 style="line-height: 35px;"><br> <a href="{{ url_for('home') }}">Click here to return home</a></h2>
     <h2 style="line-height: 35px; margin-bottom: 15px;"><br> <a href="{{ url_for('donate') }}">Donate to help fight COVID-19!</a></h2>
