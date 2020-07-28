@@ -11,8 +11,10 @@ def home():
     #     tester = data['attributes'][0]['test']
 
     if request.method == 'POST':
-        location = request.form['location']
-        print(location)
+        # location = request.form['location']
+        # print(location)
+        jsdata = request.form
+        print(jsdata)
 
     return render_template(
         "index.html",
