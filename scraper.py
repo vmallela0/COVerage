@@ -112,7 +112,7 @@ def scrapeTransfer(URL, categrory):
         for i in content.findAll('p'):
             article = article + ' ' +  i.text
 
-        for b in whitelist:
+        for b in ['\b','\n']:
             article = article.replace(b, '')
 
     print(header)
@@ -151,8 +151,9 @@ def img_scraper(url):
 
 
 
-def get_headlines(urls):
+def get_words(urls):
     headlines = []
+    text = []
     for url in urls:
         try:
             page = urlopen(url)
@@ -165,5 +166,17 @@ def get_headlines(urls):
             header = ""
         else:
             header = soup.find('h1').get_text().strip()
+        article = ''
+        if(content == None):
+            article = ''
+        else:
+            for i in content.findAll('p'):
+                article = article + ' ' +  i.text
+            for b in ['\b','\n']:
+                article = article.replace(b, '')
+        text.append(article[0:500])
         headlines.append(header)
-    return headlines
+
+
+
+    return headlines, text

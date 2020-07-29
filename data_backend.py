@@ -370,7 +370,7 @@ cat_list = ['policies', 'education', 'biology','economy', 'statistics']
 def send_urls(county_name, state_code):
     for i in cat_list:
         lavaa[i]['url'] = searcher(county_name, state_code, i)
-        lavaa[i]['headlines'] = get_headlines(lavaa[i]['url'])
+        lavaa[i]['headlines'], lavaa[i]['text'] = get_words(lavaa[i]['url'])
         lavaa[i]['image'] = img_scrape(lavaa[i]['url']) #! getting 403 error on scrape, need to handle exception
         #or text in range(5):
         #    lavaa[i]['tags'][text] = taggify(lavaa[i]['text'][text])
