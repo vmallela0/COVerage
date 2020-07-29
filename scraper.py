@@ -157,7 +157,10 @@ def get_headlines(urls):
         r = requests.get(url)
         type(r)
         html = r.text
-        page = urlopen(url) # change to ./404 for exceptions
+        try:
+            page = urlopen(url) # change to ./404 for exceptions
+        except:
+            headlines.append("oops")
 
         try:
             page = urlopen(URL)
