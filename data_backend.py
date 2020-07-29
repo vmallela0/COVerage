@@ -351,6 +351,7 @@ lavaa = {
 def home():
     if request.method == 'POST':
         jsdata = request.form
+        
         send_urls(jsdata['county_name'] , jsdata['state_code']),
 
     return render_template(
