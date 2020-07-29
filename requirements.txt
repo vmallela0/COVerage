@@ -3,7 +3,7 @@ Flask==1.0.2
 gunicorn==20.0.4
 requests==2.22.0
 google-search==1.0.2
-collection
+collections
 urllib
 collections
 re
