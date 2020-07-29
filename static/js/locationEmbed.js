@@ -22,11 +22,11 @@ window.onload = function getLocation() {
 				// var lat = 37.431313849999995;
         // var long = -122.16936535498309; // stanford default
         
-        // var lat = 32.7157;
-        // var long = -117.1611; //! default for ppl testing @ stanford (San Diego)
+        var lat = 32.7157;
+        var long = -117.1611; //! default for ppl testing @ stanford (San Diego)
 
-        var lat = 51.5074;
-        var long = -0.1278; //! default testing ==> London
+        // var lat = 51.5074;
+        // var long = -0.1278; //! default testing for international ==> London
 
 				console.log("LOCATION ACCESS DENIED");
 				console.log(
