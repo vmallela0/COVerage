@@ -10,10 +10,9 @@ window.onload = function getLocation() {
 	}
 	navigator.geolocation.watchPosition(
 		function (position) {
-			// location access accepted => loads lat, long into fips_lookup
-			console.log(
-				"LOCATION ACCESS GRANTED \nLatitude: " + lat + "\nLongitude: " + long
-			);
+      // location access accepted => loads lat, long into fips_lookup
+      
+			// console.log("LOCATION ACCESS GRANTED \nLatitude: " + lat + "\nLongitude: " + long);
       fips_lookup(lat, long);
 		},
 		function (error) {
@@ -24,10 +23,10 @@ window.onload = function getLocation() {
         // var long = -122.16936535498309; // stanford default
         
         // var lat = 32.7157;
-        // var long = -117.1611; //! default for Aadit
+        // var long = -117.1611; //! default for ppl testing @ stanford (San Diego)
 
         var lat = 51.5074;
-        var long = -0.1278; //! default testing ==> amsterdam
+        var long = -0.1278; //! default testing ==> London
 
 				console.log("LOCATION ACCESS DENIED");
 				console.log(
@@ -97,9 +96,6 @@ function fips_lookup(geolat, geolong) {
 		url: fips_url,
 		method: "GET",
   };
-  
-
-
 
 	// reading in json object and extracting fips, county and state
 	$.ajax(settings).done(function (response) {

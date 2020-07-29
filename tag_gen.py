@@ -1,5 +1,8 @@
 import collections
 from nltk.corpus import stopwords
+import nltk
+nltk.download('stopwords')
+
 
 def taggify(text):
     # Store tags in array
