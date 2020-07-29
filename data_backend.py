@@ -5,17 +5,15 @@ from scraper import *
 from tag_gen import *
 app = Flask(__name__)
 
-# declaring default values
-headline_policies_1 = headline_policies_2 = headline_policies_3 = headline_policies_4 = headline_policies_5 = "Policies default"
+headline_policies_1 = headline_policies_2 = headline_policies_3 = headline_policies_4 = headline_policies_5 = " default"
 
-headline_education_1 = headline_education_2 = headline_education_3 = headline_education_4 = headline_education_5 = "Education default"
+headline_education_1 = headline_education_2 = headline_education_3 = headline_education_4 = headline_education_5 = " default"
 
-headline_biology_1 = headline_biology_2 = headline_biology_3 = headline_biology_4 = headline_biology_5 = "Bio default"
+headline_biology_1 = headline_biology_2 = headline_biology_3 = headline_biology_4 = headline_biology_5 = " default"
 
-headline_economy_1 = headline_economy_2 = headline_economy_3 = headline_economy_4 = headline_economy_5 = "Economy default"
+headline_economy_1 = headline_economy_2 = headline_economy_3 = headline_economy_4 = headline_economy_5 = " default"
 
-headline_statistics_1 = headline_statistics_2 = headline_statistics_3 = headline_statistics_4 = headline_statistics_5 = "Stat default"
-
+headline_statistics_1 = headline_statistics_2 = headline_statistics_3 = headline_statistics_4 = headline_statistics_5 = " default"
 # Paragraphs
 text_policies_1 = text_policies_2 = text_policies_3 = text_policies_4 = text_policies_5 = "text about policies"
 
@@ -374,8 +372,8 @@ def send_urls(county_name, state_code):
         lavaa[i]['url'] = searcher(county_name, state_code, i)
         lavaa[i]['headlines'] = get_headlines(lavaa[i]['url'])
         # lavaa[i]['image'] = img_scrape(lavaa[i]['url']) #! getting 403 error on scrape, need to handle exception
-        for text in range(5):
-            lavaa[i]['tags'][text] = taggify(lavaa[i]['text'][text])
+        #for text in range(5):
+        #    lavaa[i]['tags'][text] = taggify(lavaa[i]['text'][text])
 
 
 

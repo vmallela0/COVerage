@@ -154,24 +154,16 @@ def img_scraper(url):
 def get_headlines(urls):
     headlines = []
     for url in urls:
-        r = requests.get(url)
-        type(r)
-        html = r.text
         try:
-            page = urlopen(url) # change to ./404 for exceptions
+            page = urlopen(url)
         except:
-            headlines.append("oops")
-
-        try:
-            page = urlopen(URL)
-        except:
-            headlines.append("oops")
+            headlines.append("")
             continue
         soup = BeautifulSoup(page, 'html.parser')
         content = soup.find('div')
         if(soup.find('h1') == None):
-            headline = "error"
+            header = ""
         else:
-            headline = soup.find('h1').get_text().strip()
-
-        headlines.append(headline)
+            header = soup.find('h1').get_text().strip()
+        headlines.append(header)
+    return headlines
