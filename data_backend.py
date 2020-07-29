@@ -2,6 +2,7 @@
 from searchinator import *
 from flask import *
 from scraper import *
+from tag_gen import *
 app = Flask(__name__)
 
 # declaring default values
@@ -112,25 +113,25 @@ lavaa = {
                 headline_policies_5
             ],
             "tags": [
-                tag1_policies_1,
+                [tag1_policies_1,
                 tag2_policies_1,
-                tag3_policies_1,
+                tag3_policies_1],
 
-                tag1_policies_2,
+                [tag1_policies_2,
                 tag2_policies_2,
-                tag3_policies_2,
+                tag3_policies_2],
 
-                tag1_policies_3,
+                [tag1_policies_3,
                 tag2_policies_3,
-                tag3_policies_3,
+                tag3_policies_3],
 
-                tag1_policies_4,
+                [tag1_policies_4,
                 tag2_policies_4,
-                tag3_policies_4,
+                tag3_policies_4],
 
-                tag1_policies_5,  
+                [tag1_policies_5,  
                 tag2_policies_5,
-                tag3_policies_5,
+                tag3_policies_5]
             ]
 
         },
@@ -165,25 +166,25 @@ lavaa = {
                 headline_education_5
             ],
             "tags": [
-                tag1_education_1,
+                [tag1_education_1,
                 tag2_education_1,
-                tag3_education_1,
+                tag3_education_1],
 
-                tag1_education_2,
+                [tag1_education_2,
                 tag2_education_2,
-                tag3_education_2,
+                tag3_education_2],
 
-                tag1_education_3,
+                [tag1_education_3,
                 tag2_education_3,
-                tag3_education_3,
+                tag3_education_3],
 
-                tag1_education_4,
+                [tag1_education_4,
                 tag2_education_4,
-                tag3_education_4,
+                tag3_education_4],
 
-                tag1_education_5,  
+                [tag1_education_5,  
                 tag2_education_5,
-                tag3_education_5,
+                tag3_education_5]
             ]
 
         },
@@ -219,25 +220,25 @@ lavaa = {
                 headline_biology_5
             ],
             "tags": [
-                tag1_biology_1,
+                [tag1_biology_1,
                 tag2_biology_1,
-                tag3_biology_1,
+                tag3_biology_1],
 
-                tag1_biology_2,
+                [tag1_biology_2,
                 tag2_biology_2,
-                tag3_biology_2,
+                tag3_biology_2],
 
-                tag1_biology_3,
+                [tag1_biology_3,
                 tag2_biology_3,
-                tag3_biology_3,
+                tag3_biology_3],
 
-                tag1_biology_4,
+                [tag1_biology_4,
                 tag2_biology_4,
-                tag3_biology_4,
+                tag3_biology_4],
 
-                tag1_biology_5,  
+                [tag1_biology_5,  
                 tag2_biology_5,
-                tag3_biology_5,
+                tag3_biology_5]
             ]
 
         },
@@ -272,25 +273,25 @@ lavaa = {
                 headline_economy_5
             ],
             "tags": [
-                tag1_economy_1,
+                [tag1_economy_1,
                 tag2_economy_1,
-                tag3_economy_1,
+                tag3_economy_1],
 
-                tag1_economy_2,
+                [tag1_economy_2,
                 tag2_economy_2,
-                tag3_economy_2,
+                tag3_economy_2],
 
-                tag1_economy_3,
+                [tag1_economy_3,
                 tag2_economy_3,
-                tag3_economy_3,
+                tag3_economy_3],
 
-                tag1_economy_4,
+                [tag1_economy_4,
                 tag2_economy_4,
-                tag3_economy_4,
+                tag3_economy_4],
 
-                tag1_economy_5,  
+                [tag1_economy_5,  
                 tag2_economy_5,
-                tag3_economy_5,
+                tag3_economy_5]
             ]
 
         },
@@ -325,25 +326,25 @@ lavaa = {
                 headline_statistics_5
             ],
             "tags": [
-                tag1_statistics_1,
+                [tag1_statistics_1,
                 tag2_statistics_1,
-                tag3_statistics_1,
+                tag3_statistics_1],
 
-                tag1_statistics_2,
+                [tag1_statistics_2,
                 tag2_statistics_2,
-                tag3_statistics_2,
+                tag3_statistics_2],
 
-                tag1_statistics_3,
+                [tag1_statistics_3,
                 tag2_statistics_3,
-                tag3_statistics_3,
+                tag3_statistics_3],
 
-                tag1_statistics_4,
+                [tag1_statistics_4,
                 tag2_statistics_4,
-                tag3_statistics_4,
+                tag3_statistics_4],
 
-                tag1_statistics_5,  
+                [tag1_statistics_5,  
                 tag2_statistics_5,
-                tag3_statistics_5,
+                tag3_statistics_5]
             ]
         }
 }
@@ -359,12 +360,23 @@ def home():
         lavaa = lavaa
     )
 
+def img_scrape(url_list):
+    arrayinator = []
+    for url in url_list:
+        arrayinator.append(img_scraper(url))
+    return arrayinator
+
+
+cat_list = ['policies', 'education', 'biology','economy', 'statistics']
 # search => urls
-def send_urls(county_name, state_code):
-    cat_list = ['policies', 'education', 'biology','economy', 'statistics']
+def send_urls(county_name, state_code):  
     for i in cat_list:
         lavaa[i]['url'] = searcher(county_name, state_code, i)
-        # lavaa[i]['image'] = img_scrape(lavaa[i]['url'])
+        # lavaa[i]['image'] = img_scrape(lavaa[i]['url']) #! getting 403 error on scrape, need to handle exception
+        for text in range(5):
+            lavaa[i]['tags'][text] = taggify(lavaa[i]['text'][text])
+
+
 
 # send_urls("Santa Clara", "CA") #! use this for testing
 # print(lavaa)

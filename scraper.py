@@ -144,12 +144,5 @@ def img_scraper(url):
     images = bs.find_all('img', {'src':re.compile('.jpg')})
     for image in images:
         img_urls.append(image['src'])
-    if img_urls == []: 
-        return ""
-    return img_urls[0]
-
-def img_scrape(url_list):
-    arrayinator = []
-    for url in url_list:
-        img_scraper(url)
-    return arrayinator
+    if img_urls == []: return ""
+    else: return img_urls[0]

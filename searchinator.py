@@ -21,4 +21,5 @@ def searcher(county, state, category):
                     urls.append(myurl)
         return urls[:5]
 
-searcher("Santa Clara", "CA", "policies") # example query
+# searcher("Santa Clara", "CA", "policies") # example query
+
