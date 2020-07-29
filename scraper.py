@@ -163,7 +163,7 @@ def get_headlines(urls):
             page = urlopen(URL)
         except:
             headlines.append("oops")
-            break
+            continue
         soup = BeautifulSoup(page, 'html.parser')
         content = soup.find('div')
         if(soup.find('h1') == None):
