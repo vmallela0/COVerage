@@ -84,7 +84,7 @@
         h2 {
             color: white;
             text-align: center;
-            font-size: 45px;
+            font-size: 50px;
             /* margin: 7%; */
             text-transform: none;
             font-family: 'Source Serif Pro', serif;
@@ -228,6 +228,10 @@
 
         .holds-the-iframe {
           background:url("{{ url_for('static', filename='img/volcano5.gif') }}") center center no-repeat;
+        }
+
+        li {
+          margin: 0 0 10px 0;
         }
     </style>
 </head>
@@ -527,8 +531,8 @@
                 </div>
 
 
-                <h2 style="color: #8c1515; font-size: large;">
-                    <a href="{{ url_for('donate') }}" style="font-size: larger;">Click here to donate to help fight the COVID-19 pandemic</a></h2>
+                <!--<h2 style="color: #8c1515; font-size: large;">
+                     <a href="{{ url_for('donate') }}" style="font-size: larger;">Click here to donate to help fight the COVID-19 pandemic</a></h2> -->
                 <p style="text-align: center; line-height: 25px;">Created by research interns at the <a href="https://compression.stanford.edu/summer-internships-high-school-students" style="font-size: large;">Stanford Compression Forum</a></p>
             </article>
         </div>
@@ -547,8 +551,19 @@
                 </form>
                 <h2 style="color: #8c1515;">About us</h2>
                 <p style="text-align: center; line-height: 20px;">
-                    Recognizing the effects of COVID-19 on a global and local scale, COVerage is a website and mobile app that delivers up-to-date and location specific news directly to you. We aim to make the most relevant information easily accessible in just a few clicks.
-                <a href="{{ url_for('about') }}" style="font-size: larger;"><b>read more here</b></a></p>
+                    COVerage recognizes the effects of COVID-19 on a global and local scale, COVerage is a website and mobile app that delivers up-to-date and location specific news directly to you. We aim to make the most relevant information easily accessible in just
+        a few clicks. COVerage is primarily designed and run by five students who are working as interns at the Stanford Compression Forum. in these fields to provide you, our users, with an unforgettable experience through COVerage.</h2>
+                <p style="text-align: center; line-height: 20px;"><a href=" {{ url_for('team') }} " style="font-size:20px">Check out our awesome team!</a></p>
+                
+                <h2 style="color: #8c1515;">Donate and help those affected!</h2>
+                <p style="text-align: center; line-height: 20px;">
+                    <ul style="list-style-type: none; text-align: center; font-size: 20px;">
+                      <li><a href="https://covid19responsefund.org/en" style="font-size: 20px; ">World Health Organization COVID-19 Solidarity Response Fund</a></li>
+                      <li><a href="https://donateppe.org/" style="font-size: 20px; margin-top:5px">COVID-19 PPEd</a></li>
+                      <li> <a href="https://domesticworkers.org/coronavirus-care-fund" style="font-size: 20px; margin-top:5px">National Domestic Workers Alliance</a></li>
+                      <li><a href="https://www.we-count.org/covid19" style="font-size: 20px">Immigrant Worker COVID-19 Fund</a></li>
+                    </ul></h2>
+                
                 <br><br>
                 <script src="{{ url_for('static', filename='js/locationEmbed.js') }}">
                 </script>
