@@ -18,25 +18,14 @@ window.onload = function getLocation() {
 		function (error) {
 			// handles location access denied => defaults location to stanford
 			if (error.code == error.PERMISSION_DENIED) {
-				// alert("Location access was denied. Deafulting location to Stanford, CA...")
-				// var lat = 37.431313849999995;
-        // var long = -122.16936535498309; // stanford default
-        
-        var lat = 32.7157;
-        var long = -117.1611; //! default for ppl testing @ stanford (San Diego)
-
         // var lat = 51.5074;
         // var long = -0.1278; //! default testing for international ==> London
 
-				console.log("LOCATION ACCESS DENIED");
-				console.log(
-					"default latitude: " + lat + "\ndefault longitude: " + long
-				);
-				fips_lookup(lat, long);
-        location_err.innerHTML =
-          // "Location access was denied. Defaulted location to London, England";
-					"Location access was denied. Defaulted location to San Diego, CA";
-				userlocation.innerHTML = "COVID-19 News in ";
+        covid_nametag.innerHTML = "🌍 World COVID-19 News 🌎"
+        location_err.innerHTML ="Location access was denied. Showing global news";
+        embed_county.innerHTML = '<iframe src="https://public.domo.com/cards/bWxVg" width= 100%; height= 655px marginheight="0" marginwidth="0" frameborder="0"></iframe>'
+        
+        $.post( "/", { county_name: "world", state_code: "" })
 			}
     }
   );
