@@ -7,3 +7,4 @@ collections
 urllib3==1.25.9
 re
 nltk
+nltk.corpus
