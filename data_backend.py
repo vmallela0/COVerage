@@ -350,7 +350,6 @@ lavaa = {
 }
 @app.route('/', methods=['GET','POST'])
 def home():
-    summarizinator("this is a test")
     if request.method == 'POST':
         jsdata = request.form
 
