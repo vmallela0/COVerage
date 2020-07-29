@@ -5,6 +5,6 @@ requests==2.22.0
 google-search==1.0.2
 
 urllib3==1.25.9
-re
+
 nltk
 nltk.corpus
