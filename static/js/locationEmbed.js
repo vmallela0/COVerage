@@ -34,8 +34,8 @@ window.onload = function getLocation() {
 				);
 				fips_lookup(lat, long);
         location_err.innerHTML =
-          "Location access was denied. Defaulted location to London, England";
-					// "Location access was denied. Defaulted location to Stanford, CA";
+          // "Location access was denied. Defaulted location to London, England";
+					"Location access was denied. Defaulted location to San Diego, CA";
 				userlocation.innerHTML = "COVID-19 News in ";
 			}
     }
