@@ -3,6 +3,7 @@ from searchinator import *
 from flask import *
 from scraper import *
 from tag_gen import *
+from t5_model import *
 app = Flask(__name__)
 
 # declaring default values
@@ -129,7 +130,7 @@ lavaa = {
                 tag2_policies_4,
                 tag3_policies_4],
 
-                [tag1_policies_5,  
+                [tag1_policies_5,
                 tag2_policies_5,
                 tag3_policies_5]
             ]
@@ -182,7 +183,7 @@ lavaa = {
                 tag2_education_4,
                 tag3_education_4],
 
-                [tag1_education_5,  
+                [tag1_education_5,
                 tag2_education_5,
                 tag3_education_5]
             ]
@@ -236,7 +237,7 @@ lavaa = {
                 tag2_biology_4,
                 tag3_biology_4],
 
-                [tag1_biology_5,  
+                [tag1_biology_5,
                 tag2_biology_5,
                 tag3_biology_5]
             ]
@@ -289,7 +290,7 @@ lavaa = {
                 tag2_economy_4,
                 tag3_economy_4],
 
-                [tag1_economy_5,  
+                [tag1_economy_5,
                 tag2_economy_5,
                 tag3_economy_5]
             ]
@@ -342,7 +343,7 @@ lavaa = {
                 tag2_statistics_4,
                 tag3_statistics_4],
 
-                [tag1_statistics_5,  
+                [tag1_statistics_5,
                 tag2_statistics_5,
                 tag3_statistics_5]
             ]
@@ -350,13 +351,14 @@ lavaa = {
 }
 @app.route('/', methods=['GET','POST'])
 def home():
+    summarizinator("this is a test")
     if request.method == 'POST':
         jsdata = request.form
-        
+
         send_urls(jsdata['county_name'] , jsdata['state_code']),
 
     return render_template(
-        "index.html",   
+        "index.html",
         lavaa = lavaa
     )
 
@@ -369,7 +371,7 @@ def img_scrape(url_list):
 
 cat_list = ['policies', 'education', 'biology','economy', 'statistics']
 # search => urls
-def send_urls(county_name, state_code):  
+def send_urls(county_name, state_code):
     for i in cat_list:
         lavaa[i]['url'] = searcher(county_name, state_code, i)
         # lavaa[i]['image'] = img_scrape(lavaa[i]['url']) #! getting 403 error on scrape, need to handle exception
