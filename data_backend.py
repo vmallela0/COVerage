@@ -350,13 +350,14 @@ lavaa = {
 def home():
     if request.method == 'POST':
         jsdata = request.form
-
         send_urls(jsdata['county_name'] , jsdata['state_code']),
 
     return render_template(
         "index.html",
-        lavaa = lavaa
+
+        lavaa = lavaa, 
     )
+
 
 def img_scrape(url_list):
     arrayinator = []
@@ -377,5 +378,5 @@ def send_urls(county_name, state_code):
 
 
 
-# send_urls("Santa Clara", "CA") #! use this for testing
-# print(lavaa)
+send_urls("Santa Clara", "CA") #! use this for testing
+print(lavaa)
