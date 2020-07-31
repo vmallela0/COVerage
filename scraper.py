@@ -138,15 +138,14 @@ def create_validation_set():
     # print(soup.p)
 
 def img_scraper(url):
-    img_urls = []
-    html = urlopen(url)
-    bs = BeautifulSoup(html, 'html.parser')
-    images = bs.find_all('img', {'src':re.compile('.jpg')})
-    for image in images:
-        img_urls.append(image['src'])
-    if img_urls == []: return ""
-    else: return img_urls[0]
-
+    try:
+        img_urls = []
+        html = urlopen(url)
+        bs = BeautifulSoup(html, 'html.parser')
+        images = bs.find_all('img', {'src':re.compile('.jpg')})
+    except:
+        return ""
+    return images[0]['src']
 
 
 
