@@ -143,9 +143,10 @@ def img_scraper(url):
         html = urlopen(url)
         bs = BeautifulSoup(html, 'html.parser')
         images = bs.find_all('img', {'src':re.compile('.jpg')})
+        return images[0]['src']
     except:
-        return ""
-    return images[0]['src']
+        return "https://imgur.com/lNhUEmK.png"
+    
 
 
 

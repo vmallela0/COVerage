@@ -1,8 +1,10 @@
 # data for index => feeds data from searcher.py and model
+import json
+import requests
 from searchinator import *
 from flask import *
 from scraper import *
-from tag_gen import *
+# from tag_gen import *
 app = Flask(__name__)
 
 headline_policies_1 = headline_policies_2 = headline_policies_3 = headline_policies_4 = headline_policies_5 = " default"
@@ -346,6 +348,8 @@ lavaa = {
             ]
         }
 }
+
+
 @app.route('/', methods=['GET','POST'])
 def home():
     if request.method == 'POST':
@@ -354,7 +358,6 @@ def home():
 
     return render_template(
         "index.html",
-
         lavaa = lavaa, 
     )
 
@@ -365,18 +368,22 @@ def img_scrape(url_list):
         arrayinator.append(img_scraper(url))
     return arrayinator
 
+def popinator(lst, index):
+    lst.append(lst.pop(index)) # moves element to end of list
 
 cat_list = ['policies', 'education', 'biology','economy', 'statistics']
 # search => urls
 def send_urls(county_name, state_code):
+    url_data = requests.get("https://coveragee-api.herokuapp.com/api/v1/" + county_name + "/" + state_code ).json()
     for i in cat_list:
-        lavaa[i]['url'] = searcher(county_name, state_code, i)
+        lavaa[i]['url'] = url_data['data'][i]['urls']
         lavaa[i]['headlines'], lavaa[i]['text'] = get_words(lavaa[i]['url'])
         lavaa[i]['image'] = img_scrape(lavaa[i]['url']) #! getting 403 error on scrape, need to handle exception
-        #or text in range(5):
+        # or text in range(5):
         #    lavaa[i]['tags'][text] = taggify(lavaa[i]['text'][text])
 
 
 
-send_urls("Santa Clara", "CA") #! use this for testing
-print(lavaa)
+# send_urls("Santa Clara", "CA") #! use this for testing
+# print(lavaa)
+
