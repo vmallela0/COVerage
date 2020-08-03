@@ -399,7 +399,6 @@ def send_urls(county_name, state_code):
                     lavaa[i]['tags'][r] = ['1' ,'2', '3']
     except json.decoder.JSONDecodeError:
         print("a")
-        send_urls(county_name, state_code)
         
 
 
