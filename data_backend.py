@@ -396,6 +396,7 @@ def send_urls(county_name, state_code):
                 article.download()
                 article.parse()
                 article.nlp()
+                lavaa[i]['headlines'][r] = article.title
                 lavaa[i]['image'][r] = article.top_image
                 lavaa[i]['text'][r] = article.summary
                 lavaa[i]['tags'][r] = article.keywords[0:2]
