@@ -380,28 +380,35 @@ def popinator(lst, index):
 cat_list = ['policies', 'education', 'biology','economy', 'statistics']
 # search => urls
 def send_urls(county_name, state_code):
-    try:
-        res = requests.get("https://coveragee-api.herokuapp.com/api/v1/" + str(county_name) + "/" + str(state_code))
-        url_data = res.json()
-        for i in cat_list:
-            lavaa[i]['url'] = url_data['data'][i]['urls']
-            for r in range(5):
-                article = Article(str(lavaa[i]['url'][r]))
-                try:
-                    article.download()
-                    article.parse()
-                    article.nlp()
-                    lavaa[i]['image'][r] = article.top_image
-                    lavaa[i]['text'][r] = article.summary
-                    lavaa[i]['tags'][r] = article.keywords[0:2]
-                except:
-                    lavaa[i]['text'][r] = "default text"
-                    lavaa[i]['tags'][r] = ['1' ,'2', '3']
-    except json.decoder.JSONDecodeError:
-        print("a")
+    # try:
+    url = "https://coveragee-api.herokuapp.com/api/v1/" + str(county_name) + "/" + str(state_code)
+    url.replace(" ", "")
+    res = requests.get(url)
+    print(url)
+    # print(res.status_code)
+    url_data = res.json()
+    print(url_data)
+    for i in cat_list:
+        lavaa[i]['url'] = url_data['data'][i]['urls']
+        for r in range(5):
+            article = Article(str(lavaa[i]['url'][r]))
+            try:
+                article.download()
+                article.parse()
+                article.nlp()
+                lavaa[i]['image'][r] = article.top_image
+                lavaa[i]['text'][r] = article.summary
+                lavaa[i]['tags'][r] = article.keywords[0:2]
+            except:
+                lavaa[i]['text'][r] = "default text"
+                lavaa[i]['tags'][r] = ['1' ,'2', '3']
+    # except:
+    #     print("a")
         
 
 
 # send_urls("Santa Clara", "CA") #! use this for testing
 # print(lavaa)
-
+# res = requests.get("https://coveragee-api.herokuapp.com/api/v1/Fulton/GA")
+# url_data = res.json()
+# print(url_data)

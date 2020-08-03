@@ -25,7 +25,7 @@ window.onload = function getLocation() {
         location_err.innerHTML ="Location access was denied. Showing global news";
         embed_county.innerHTML = '<iframe src="https://public.domo.com/cards/bWxVg" width= 100%; height= 655px marginheight="0" marginwidth="0" frameborder="0"></iframe>'
         
-        $.post( "/", { county_name: "world", state_code: "" })
+        $.post( "/", { county_name: "world", state_code: "global" })
 			}
     }
   );
