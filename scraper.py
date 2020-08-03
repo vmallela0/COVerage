@@ -137,7 +137,7 @@ def create_validation_set():
 
     # print(soup.p)
 
-def img_scraper(url):
+def img_scraper(i, url):
     try:
         img_urls = []
         html = urlopen(url)

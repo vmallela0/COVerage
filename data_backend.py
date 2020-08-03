@@ -2,9 +2,15 @@
 import json
 import requests
 from searchinator import *
-from flask import *
-from scraper import *
+from flask import Flask
+from flask import request
+from flask import render_template
+# from scraper import *
 # from tag_gen import *
+import nltk
+nltk.download('punkt')
+from newspaper import Article
+from newspaper import fulltext
 app = Flask(__name__)
 
 headline_policies_1 = headline_policies_2 = headline_policies_3 = headline_policies_4 = headline_policies_5 = " default"
@@ -374,14 +380,27 @@ def popinator(lst, index):
 cat_list = ['policies', 'education', 'biology','economy', 'statistics']
 # search => urls
 def send_urls(county_name, state_code):
-    url_data = requests.get("https://coveragee-api.herokuapp.com/api/v1/" + county_name + "/" + state_code ).json()
-    for i in cat_list:
-        lavaa[i]['url'] = url_data['data'][i]['urls']
-        lavaa[i]['headlines'], lavaa[i]['text'] = get_words(lavaa[i]['url'])
-        lavaa[i]['image'] = img_scrape(lavaa[i]['url']) #! getting 403 error on scrape, need to handle exception
-        # or text in range(5):
-        #    lavaa[i]['tags'][text] = taggify(lavaa[i]['text'][text])
-
+    try:
+        res = requests.get("https://coveragee-api.herokuapp.com/api/v1/" + str(county_name) + "/" + str(state_code))
+        url_data = res.json()
+        for i in cat_list:
+            lavaa[i]['url'] = url_data['data'][i]['urls']
+            for r in range(5):
+                article = Article(str(lavaa[i]['url'][r]))
+                try:
+                    article.download()
+                    article.parse()
+                    article.nlp()
+                    lavaa[i]['image'][r] = article.top_image
+                    lavaa[i]['text'][r] = article.summary
+                    lavaa[i]['tags'][r] = article.keywords[0:2]
+                except:
+                    lavaa[i]['text'][r] = "default text"
+                    lavaa[i]['tags'][r] = ['1' ,'2', '3']
+    except json.decoder.JSONDecodeError:
+        print("a")
+        send_urls(county_name, state_code)
+        
 
 
 # send_urls("Santa Clara", "CA") #! use this for testing
