@@ -8,7 +8,7 @@ from flask import render_template
 # from scraper import *
 # from tag_gen import *
 import nltk
-nltk.download('punkt')
+# nltk.download('punkt')
 from newspaper import Article
 from newspaper import fulltext
 app = Flask(__name__)
