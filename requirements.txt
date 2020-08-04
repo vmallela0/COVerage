@@ -6,3 +6,5 @@ google-search==1.0.2
 urllib3==1.25.9
 nltk==3.5
 newspaper3k
+datetime
+GoogleNews

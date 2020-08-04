@@ -5,10 +5,8 @@ from searchinator import *
 from flask import Flask
 from flask import request
 from flask import render_template
-# from scraper import *
-# from tag_gen import *
+from searchinator import *
 import nltk
-# nltk.download('punkt')
 from newspaper import Article
 from newspaper import fulltext
 app = Flask(__name__)
@@ -403,16 +401,10 @@ cat_list = ['policies', 'education', 'biology','economy', 'statistics']
 # search => urls
 def send_urls(county_name, state_code):
     # try:
-    url = "https://coveragee-api.herokuapp.com/api/v1/" + str(county_name) + "/" + str(state_code)
-    url.replace(" ", "")
-    res = requests.get(url)
-    print(url)
-
-    url_data = res.json()
-    print(url_data)
+    url_data = v1(county_name, state_code)
     for i in cat_list:
         lavaa[i]['url'] = url_data['data'][i]['urls']
-        for r in range(len(lavaa[i]['url'])):
+        for r in range(5):
             article = Article(str(lavaa[i]['url'][r]))
             try:
                 article.download()
@@ -423,11 +415,12 @@ def send_urls(county_name, state_code):
                 lavaa[i]['text'][r] = article.summary
                 lavaa[i]['tags'][r] = article.keywords[0:2]
             except:
+                lavaa[i]['headlines'][r] = "Error"
                 lavaa[i]['text'][r] = "default text"
                 lavaa[i]['tags'][r] = ['1' ,'2', '3']
-            # print(url_data['data']['donations']['urls'])
-    # except:
-    #     print("a")
+                continue
+
+    print("success")
     
 
 
