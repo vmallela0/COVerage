@@ -33,6 +33,8 @@ text_economy_1 = text_economy_2 = text_economy_3 = text_economy_4 = text_economy
 
 text_statistics_1 = text_statistics_2 = text_statistics_3 = text_statistics_4 = text_statistics_5 = "text about statistics"
 
+text_donations_1 = text_donations_2 = text_donations_3 = text_donations_4 = text_donations_5 = "Donate to help fight COVID-19"
+
 # images
 img_policies_1 = img_policies_2 = img_policies_3 = img_policies_4 = img_policies_5 = "https://imgur.com/lNhUEmK.png"
 
@@ -55,6 +57,7 @@ url_economy_1 = url_economy_2 = url_economy_3 = url_economy_4 = url_economy_5 = 
 
 url_statistics_1 = url_statistics_2 = url_statistics_3 = url_statistics_4 = url_statistics_5 = "https://compression.stanford.edu/"
 
+url_donations_1 = url_donations_2 = url_donations_3 = url_donations_4 = url_donations_5 = "https://covid19responsefund.org/en/"
 # tag names
 tag1_policies_1 = tag1_policies_2 = tag1_policies_3 = tag1_policies_4 = tag1_policies_5 = "policies tag1"
 
@@ -85,6 +88,8 @@ tag3_biology_1 = tag3_biology_2 = tag3_biology_3 = tag3_biology_4 = tag3_biology
 tag3_economy_1 = tag3_economy_2 = tag3_economy_3 = tag3_economy_4 = tag3_economy_5 = "econ tag3"
 
 tag3_statistics_1 = tag3_statistics_2 = tag3_statistics_3 = tag3_statistics_4 = tag3_statistics_5 = "stat tag3"
+
+
 
 
 lavaa = {
@@ -352,6 +357,23 @@ lavaa = {
                 tag2_statistics_5,
                 tag3_statistics_5]
             ]
+        }, 
+        "donations":
+        {
+            "url": [
+                url_donations_1,
+                url_donations_2,
+                url_donations_3,
+                url_donations_4,
+                url_donations_5
+            ],
+            "text": [
+                text_donations_1, 
+                text_donations_2, 
+                text_donations_3, 
+                text_donations_4, 
+                text_donations_5
+            ]
         }
 }
 
@@ -385,12 +407,12 @@ def send_urls(county_name, state_code):
     url.replace(" ", "")
     res = requests.get(url)
     print(url)
-    # print(res.status_code)
+
     url_data = res.json()
     print(url_data)
     for i in cat_list:
         lavaa[i]['url'] = url_data['data'][i]['urls']
-        for r in range(5):
+        for r in range(len(lavaa[i]['url'])):
             article = Article(str(lavaa[i]['url'][r]))
             try:
                 article.download()
@@ -403,12 +425,13 @@ def send_urls(county_name, state_code):
             except:
                 lavaa[i]['text'][r] = "default text"
                 lavaa[i]['tags'][r] = ['1' ,'2', '3']
+            # print(url_data['data']['donations']['urls'])
     # except:
     #     print("a")
-        
+    
 
 
-# send_urls("Santa Clara", "CA") #! use this for testing
+# send_urls("SantaClara", "CA") #! use this for testing
 # print(lavaa)
 # res = requests.get("https://coveragee-api.herokuapp.com/api/v1/Fulton/GA")
 # url_data = res.json()
