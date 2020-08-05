@@ -381,6 +381,8 @@ def home():
     if request.method == 'POST':
         jsdata = request.form
         send_urls(jsdata['county_name'] , jsdata['state_code']),
+        send_headlines(lavaa[i]['url']),
+        send_nlp(lavaa[i]['url'])
 
     return render_template(
         "index.html",
@@ -400,28 +402,34 @@ def popinator(lst, index):
 cat_list = ['policies', 'education', 'biology','economy', 'statistics']
 # search => urls
 def send_urls(county_name, state_code):
-    # try:
     url_data = v1(county_name, state_code)
+    lavaa[i]['url'] = url_data['data'][i]['urls']
+
+def send_headlines(urls):
     for i in cat_list:
-        lavaa[i]['url'] = url_data['data'][i]['urls']
+        for r in range(5):
+            article = Article(str(lavaa[i]['url'][r]))
+            try:
+                article.download()
+                article.parse()
+                lavaa[i]['headlines'][r] = article.title
+                lavaa[i]['image'][r] = article.top_image
+            except:
+                lavaa[i]['headlines'][r] = "Error"
+def send_nlp(urls):
+    for i in cat_list:
         for r in range(5):
             article = Article(str(lavaa[i]['url'][r]))
             try:
                 article.download()
                 article.parse()
                 article.nlp()
-                lavaa[i]['headlines'][r] = article.title
-                lavaa[i]['image'][r] = article.top_image
                 lavaa[i]['text'][r] = article.summary
                 lavaa[i]['tags'][r] = article.keywords[0:2]
             except:
-                lavaa[i]['headlines'][r] = "Error"
                 lavaa[i]['text'][r] = "default text"
                 lavaa[i]['tags'][r] = ['1' ,'2', '3']
-                continue
-
-    print("success")
-    
+                
 
 
 # send_urls("SantaClara", "CA") #! use this for testing
