@@ -1,4 +1,8 @@
 from flask import *
+import os
+import nltk
+nltk.download('punkt')
+
 app = Flask(__name__)
 import json
 from data_backend import *
