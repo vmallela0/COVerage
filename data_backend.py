@@ -383,36 +383,31 @@ def home():
     if request.method == 'POST':
         jsdata = request.form
         t1 = threading.Thread(target=send_urls, args=(jsdata['county_name'],jsdata['state_code']))
-        t2 = threading.Thread(target=send_headlines, args=(lavaa[i]['url']))
-        t3 = threading.Thread(target=send_nlp, args=(lavaa[i]['url']))
+        t2 = threading.Thread(target=send_headlines)
+        t3 = threading.Thread(target=send_nlp)
         t1.start()
         t2.start()
         t3.start()
         t1.join() 
         t2.join()
         t3.join() 
+
     return render_template(
         "index.html",
         lavaa = lavaa, 
     )
 
-
-def img_scrape(url_list):
-    arrayinator = []
-    for url in url_list:
-        arrayinator.append(img_scraper(url))
-    return arrayinator
-
 def popinator(lst, index):
     lst.append(lst.pop(index)) # moves element to end of list
 
 cat_list = ['policies', 'education', 'biology','economy', 'statistics']
+
 # search => urls
 def send_urls(county_name, state_code):
     url_data = v1(county_name, state_code)
-    lavaa[i]['url'] = url_data['data'][i]['urls']
+    for i in cat_list: lavaa[i]['url'] = url_data['data'][i]['urls']
 
-def send_headlines(urls):
+def send_headlines():
     for i in cat_list:
         for r in range(5):
             article = Article(str(lavaa[i]['url'][r]))
@@ -423,7 +418,7 @@ def send_headlines(urls):
                 lavaa[i]['image'][r] = article.top_image
             except:
                 lavaa[i]['headlines'][r] = "Error"
-def send_nlp(urls):
+def send_nlp():
     for i in cat_list:
         for r in range(5):
             article = Article(str(lavaa[i]['url'][r]))
@@ -436,6 +431,7 @@ def send_nlp(urls):
             except:
                 lavaa[i]['text'][r] = "default text"
                 lavaa[i]['tags'][r] = ['1' ,'2', '3']
+    print("==success==")
                 
 
 
