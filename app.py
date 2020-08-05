@@ -1,5 +1,4 @@
 from flask import *
-import os
 import nltk
 nltk.download('punkt')
 
