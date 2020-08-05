@@ -10,6 +10,8 @@ import nltk
 from newspaper import Article
 from newspaper import fulltext
 app = Flask(__name__)
+import threading
+
 
 headline_policies_1 = headline_policies_2 = headline_policies_3 = headline_policies_4 = headline_policies_5 = " default"
 
@@ -380,10 +382,15 @@ lavaa = {
 def home():
     if request.method == 'POST':
         jsdata = request.form
-        send_urls(jsdata['county_name'] , jsdata['state_code']),
-        send_headlines(lavaa[i]['url']),
-        send_nlp(lavaa[i]['url'])
-
+        t1 = threading.Thread(target=send_urls, args=(jsdata['county_name'],jsdata['state_code']))
+        t2 = threading.Thread(target=send_headlines, args=(lavaa[i]['url']))
+        t3 = threading.Thread(target=send_nlp, args=(lavaa[i]['url']))
+        t1.start()
+        t2.start()
+        t3.start()
+        t1.join() 
+        t2.join()
+        t3.join() 
     return render_template(
         "index.html",
         lavaa = lavaa, 
