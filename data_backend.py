@@ -380,7 +380,7 @@ lavaa = {
 def home():
     if request.method == 'POST':
         jsdata = request.form
-        send_urls("Santa Clara" , "California"),
+        send_urls(jsdata['county_name'] , jsdata['state_code']),
 
     return render_template(
         "index.html",
@@ -406,6 +406,7 @@ def send_urls(county_name, state_code):
         lavaa[i]['url'] = url_data['data'][i]['urls']
         for r in range(5):
             article = Article(str(lavaa[i]['url'][r]))
+            
             try:
                 article.download()
                 article.parse()
@@ -413,11 +414,11 @@ def send_urls(county_name, state_code):
                 lavaa[i]['headlines'][r] = article.title
                 lavaa[i]['image'][r] = article.top_image
                 lavaa[i]['text'][r] = article.summary
-                lavaa[i]['tags'][r] = article.keywords[0:2]
+                # lavaa[i]['tags'][r] = article.keywords[0:2]
             except:
                 lavaa[i]['headlines'][r] = "Error"
                 lavaa[i]['text'][r] = "default text"
-                lavaa[i]['tags'][r] = ['1' ,'2', '3']
+                # lavaa[i]['tags'][r] = ['1' ,'2', '3']
                 continue
 
     print("success")
