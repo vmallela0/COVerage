@@ -10,8 +10,6 @@ import nltk
 from newspaper import Article
 from newspaper import fulltext
 app = Flask(__name__)
-import threading
-
 
 headline_policies_1 = headline_policies_2 = headline_policies_3 = headline_policies_4 = headline_policies_5 = " default"
 
@@ -382,57 +380,48 @@ lavaa = {
 def home():
     if request.method == 'POST':
         jsdata = request.form
-        t1 = threading.Thread(target=send_urls, args=(jsdata['county_name'],jsdata['state_code']))
-        t2 = threading.Thread(target=send_headlines)
-        t3 = threading.Thread(target=send_nlp)
-        t1.start()
-        t2.start()
-        t3.start()
-        t1.join() 
-        t2.join()
-        t3.join() 
+        send_urls("Santa Clara" , "California"),
 
     return render_template(
         "index.html",
         lavaa = lavaa, 
     )
 
+
+def img_scrape(url_list):
+    arrayinator = []
+    for url in url_list:
+        arrayinator.append(img_scraper(url))
+    return arrayinator
+
 def popinator(lst, index):
     lst.append(lst.pop(index)) # moves element to end of list
 
 cat_list = ['policies', 'education', 'biology','economy', 'statistics']
-
 # search => urls
 def send_urls(county_name, state_code):
+    # try:
     url_data = v1(county_name, state_code)
-    for i in cat_list: lavaa[i]['url'] = url_data['data'][i]['urls']
-
-def send_headlines():
     for i in cat_list:
-        for r in range(5):
-            article = Article(str(lavaa[i]['url'][r]))
-            try:
-                article.download()
-                article.parse()
-                lavaa[i]['headlines'][r] = article.title
-                lavaa[i]['image'][r] = article.top_image
-            except:
-                lavaa[i]['headlines'][r] = "Error"
-def send_nlp():
-    for i in cat_list:
+        lavaa[i]['url'] = url_data['data'][i]['urls']
         for r in range(5):
             article = Article(str(lavaa[i]['url'][r]))
             try:
                 article.download()
                 article.parse()
                 article.nlp()
+                lavaa[i]['headlines'][r] = article.title
+                lavaa[i]['image'][r] = article.top_image
                 lavaa[i]['text'][r] = article.summary
                 lavaa[i]['tags'][r] = article.keywords[0:2]
             except:
+                lavaa[i]['headlines'][r] = "Error"
                 lavaa[i]['text'][r] = "default text"
                 lavaa[i]['tags'][r] = ['1' ,'2', '3']
-    print("==success==")
-                
+                continue
+
+    print("success")
+    
 
 
 # send_urls("SantaClara", "CA") #! use this for testing
