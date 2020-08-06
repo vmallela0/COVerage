@@ -11,21 +11,21 @@ window.onload = function getLocation() {
 	navigator.geolocation.watchPosition(
 		function (position) {
       // location access accepted => loads lat, long into fips_lookup
-      
+      $.post( "/", { county_name: lat, state_code: long });
 			// console.log("LOCATION ACCESS GRANTED \nLatitude: " + lat + "\nLongitude: " + long);
       fips_lookup(lat, long);
 		},
 		function (error) {
 			// handles location access denied => defaults location to stanford
 			if (error.code == error.PERMISSION_DENIED) {
+        $.post( "/", { county_name: "world", state_code: "global" })
         // var lat = 51.5074;
         // var long = -0.1278; //! default testing for international ==> London
 
         covid_nametag.innerHTML = "World COVID-19 News"
         location_err.innerHTML ="Location access was denied. Showing global news";
         embed_county.innerHTML = '<iframe src="https://public.domo.com/cards/bWxVg" width= 100%; height= 655px marginheight="0" marginwidth="0" frameborder="0"></iframe>'
-        
-        $.post( "/", { county_name: "world", state_code: "global" })
+  
 			}
     }
   );
@@ -53,10 +53,11 @@ function international(geolat, geolong){
       latitude: geolat,
       longitude: geolong,
   },function(result) {
-      console.log(result['city'] + ", " + result['countryName'])
+      // $.post( "/", { county_name: result['city'], state_code: result['countryName'] });
+      // console.log(result['city'] + ", " + result['countryName'])
       document.getElementById("location").value = result['city'] + ", " + result['countryName'];
       covid_nametag.innerHTML = "COVID-19 News In " + result['city'] + ", " + result['countryName'];
-      $.post( "/", { county_name: result['city'], state_code: result['countryName'] });
+      
       // return(result); //! test data here
       
   });
@@ -104,7 +105,7 @@ function fips_lookup(geolat, geolong) {
       console.log(document.getElementById("location").value)
       // document.getElementById("main_post").submit()
 
-      $.post( "/", { county_name: response.results[0].county_name, state_code: response.results[0].state_code });
+      // $.post( "/", { county_name: response.results[0].county_name, state_code: response.results[0].state_code });
     }
   });
 }

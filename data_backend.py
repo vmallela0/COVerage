@@ -380,13 +380,22 @@ lavaa = {
 def home():
     if request.method == 'POST':
         jsdata = request.form
-        send_urls("Santa Clara" , "California"),
+        print(jsdata)
+        rescor = coord(jsdata['county_name'] , jsdata['state_code'])
+        send_urls(rescor[0], rescor[1]),
 
     return render_template(
         "index.html",
         lavaa = lavaa, 
     )
 
+def coord(geolat, geolong):
+    geolat = str(geolat)
+    geolong = str(geolong)
+    x = requests.get("https://geo.fcc.gov/api/census/area?lat=" + geolat + "&lon=" + geolong)
+    data = (x.json())
+    if(len(data['results']) != 0): return [data['results'][0]['county_name'],  data['results'][0]['state_name']]
+    else: return ["global", "international"]
 
 def img_scrape(url_list):
     arrayinator = []
@@ -414,11 +423,11 @@ def send_urls(county_name, state_code):
                 lavaa[i]['headlines'][r] = article.title
                 lavaa[i]['image'][r] = article.top_image
                 lavaa[i]['text'][r] = article.summary
-                # lavaa[i]['tags'][r] = article.keywords[0:2]
+                lavaa[i]['tags'][r] = article.keywords[0:2]
             except:
                 lavaa[i]['headlines'][r] = "Error"
                 lavaa[i]['text'][r] = "default text"
-                # lavaa[i]['tags'][r] = ['1' ,'2', '3']
+                lavaa[i]['tags'][r] = ['1' ,'2', '3']
                 continue
 
     print("success")
