@@ -378,12 +378,14 @@ lavaa = {
 
 @app.route('/', methods=['GET','POST'])
 def home():
-    if request.method == 'POST':
+    try: 
+        request.method == 'POST'
         jsdata = request.form
         print(jsdata)
         rescor = coord(jsdata['county_name'] , jsdata['state_code'])
         send_urls(rescor[0], rescor[1]),
-
+    except:
+        send_urls("Santa Clara", "California")
     return render_template(
         "index.html",
         lavaa = lavaa, 
