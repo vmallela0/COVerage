@@ -382,7 +382,7 @@ def home():
         jsdata = request.form
         print(jsdata)
         rescor = coord(jsdata['county_name'] , jsdata['state_code'])
-        send_urls("Santa Clara", ),
+        send_urls("Santa Clara", "California")
     return render_template(
         "index.html",
         lavaa = lavaa, 
