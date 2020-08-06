@@ -383,9 +383,7 @@ def home():
         jsdata = request.form
         print(jsdata)
         rescor = coord(jsdata['county_name'] , jsdata['state_code'])
-        send_urls(rescor[0], rescor[1]),
-    except:
-        send_urls("Santa Clara", "California")
+        send_urls("Santa Clara", "California"),
     return render_template(
         "index.html",
         lavaa = lavaa, 
