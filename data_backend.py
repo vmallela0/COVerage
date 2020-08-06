@@ -380,7 +380,7 @@ lavaa = {
 def home():
     if request.method == 'POST':
         jsdata = request.form
-        send_urls(jsdata['county_name'] , jsdata['state_code']),
+        send_urls("Santa Clara" , "California"),
 
     return render_template(
         "index.html",
