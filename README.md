@@ -3,6 +3,9 @@
 COVerage is a project that aims to deliver region-specific news to users regarding SARS-CoV-2. It scrapes news by using the Google Search API to find different news based on users' locations. Then, it feeds the inputted information through our NLP model that returns the validity of the content as well as a summary of the text. 
 It displays tags showing the important points in the text as well. 
 
+## IMPORTANT
+We haven't fully published our website yet. Please excuse any errors as we are still fixing some issues. 
+
 ## Dependencies
 pip install requirements.txt 
 
