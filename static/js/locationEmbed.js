@@ -12,7 +12,7 @@ window.onload = function getLocation() {
 	navigator.geolocation.watchPosition(
 		function (position) {
       // location access accepted => loads lat, long into fips_lookup
-      $.post( "/", { county_name: lat, state_code: long });
+      // $.post( "/", { county_name: lat, state_code: long });
 			// console.log("LOCATION ACCESS GRANTED \nLatitude: " + lat + "\nLongitude: " + long);
       fips_lookup(lat, long);
 		},
@@ -77,8 +77,8 @@ function international(geolat, geolong){
       latitude: geolat,
       longitude: geolong,
   },function(result) {
-      // $.post( "/", { county_name: result['city'], state_code: result['countryName'] });
-      // console.log(result['city'] + ", " + result['countryName'])
+      $.post( "/", { county_name: result['city'], state_code: result['countryName'] });
+      console.log(result['city'] + ", " + result['countryName'])
 
       // increase index to see more in depth data (if bln gets a more low level view for cases)
       // console.log(result['localityInfo']['administrative'][index]['isoCode']) //! test data here 
@@ -131,7 +131,7 @@ function fips_lookup(geolat, geolong) {
       console.log(document.getElementById("location").value)
       // document.getElementById("main_post").submit()
 
-      // $.post( "/", { county_name: response.results[0].county_name, state_code: response.results[0].state_code });
+      $.post( "/", { county_name: response.results[0].county_name, state_code: response.results[0].state_code });
     }
   });
 }

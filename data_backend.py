@@ -381,7 +381,8 @@ def home():
     if(request.method == 'POST'):
         jsdata = request.form
         print(jsdata)
-        send_urls("Santa Clara", "California")
+        send_urls(jsdata['county_name'], jsdata['state_code'])
+        # send_urls("Santa Clara", "California") #! testing 
         # rescor = coord(jsdata['county_name'] , jsdata['state_code'])
         
     return render_template(
@@ -413,6 +414,7 @@ def send_urls(county_name, state_code):
     url_data = v1(county_name, state_code)
     for i in cat_list:
         lavaa[i]['url'] = url_data['data'][i]['urls']
+        print('\n%s \n', i)
         for r in range(5):
             article = Article(str(lavaa[i]['url'][r]))
             
