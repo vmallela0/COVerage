@@ -1,6 +1,7 @@
 var embed_county = document.getElementById("embed_inner");
 var embed_outer = document.getElementById("embed_outer");
 var main_break = false;
+var box_super = false;
 
 // getting long and lat
 window.onload = function getLocation() {
@@ -13,36 +14,50 @@ window.onload = function getLocation() {
 		function (position) {
       // location access accepted => loads lat, long into fips_lookup
       // $.post( "/", { county_name: lat, state_code: long });
-			// console.log("LOCATION ACCESS GRANTED \nLatitude: " + lat + "\nLongitude: " + long);
+      // console.log("LOCATION ACCESS GRANTED \nLatitude: " + lat + "\nLongitude: " + long);
       fips_lookup(lat, long);
-		},
-		function (error) {
-			// handles location access denied => defaults location to stanford
-			if (error.code == error.PERMISSION_DENIED) {
+    },
+    function (box_super){
+      if(box_super==true){
+        console.log('ssss')
+        fips_lookup(box_data.x, box_data.y)
+      }else{
         $.post( "/", { county_name: "world", state_code: "global" })
 
-        // var lat = 55.7558; // uncomment to test international locations
-        // var long = 37.6173; //! default testing for international ==> Москва (Moscow) 
-        // fips_lookup(lat, long)
+      // var lat = 55.7558; // uncomment to test international locations
+      // var long = 37.6173; //! default testing for international ==> Москва (Moscow) 
+      // fips_lookup(lat, long)
 
+      covid_nametag.innerHTML = "World COVID-19 News"
+      location_err.innerHTML ="Location access was denied. Showing global news";
+      embed_county.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/world-map/?embed=world#/" frameborder="0" scrolling="no" ></iframe>'
+      }
+    },
+		function (error) {
+      // handles location access denied => defaults location to stanford
+      $.post( "/", { county_name: "world", state_code: "global" })
 
-        covid_nametag.innerHTML = "World COVID-19 News"
-        location_err.innerHTML ="Location access was denied. Showing global news";
-        embed_county.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/world-map/?embed=world#/" frameborder="0" scrolling="no" ></iframe>'
-        
-			}
+      // var lat = 55.7558; // uncomment to test international locations
+      // var long = 37.6173; //! default testing for international ==> Москва (Moscow) 
+      // fips_lookup(lat, long)
+
+      covid_nametag.innerHTML = "World COVID-19 News"
+      location_err.innerHTML ="Location access was denied. Showing global news";
+      embed_county.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/world-map/?embed=world#/" frameborder="0" scrolling="no" ></iframe>'
     }
   );
 };
 
-("use strict");
-
-// const fs = require('fs');
 
 function showPosition(position) {
-	lat = position.coords.latitude;
-	long = position.coords.longitude;
-  fips_lookup();
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+    if (typeof box_data !== 'undefined') {
+      lat = box_data.x
+      long = box_data.y
+    }  
+    
+    fips_lookup();
 }
 
 function cc_int(country_code) {
@@ -97,6 +112,7 @@ function international(geolat, geolong){
 
 
 function fips_lookup(geolat, geolong) {
+  console.log('starting fips lookup...');
 	// feeding in long and lat to convert into FIPS and county
 
 	var fips_url =
@@ -104,7 +120,8 @@ function fips_lookup(geolat, geolong) {
 		geolat +
 		"&lon=" +
 		geolong +
-		"&format=json";
+    "&format=json";
+    console.log(fips_url)
 	var settings = {
 		async: true,
 		crossDomain: true,
@@ -120,7 +137,7 @@ function fips_lookup(geolat, geolong) {
       international(geolat, geolong)
     }
     else{
-      document.getElementById("location").value = response.results[0].county_name + " County, " + response.results[0].state_code;
+      // document.getElementById("location").value = response.results[0].county_name + " County, " + response.results[0].state_code;
       covid_nametag.innerHTML = "COVID-19 News In " + response.results[0].county_name + " County, " + response.results[0].state_code;
       
       embed_county.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/' + response.results[0].county_fips + '"frameborder="0" scrolling="yes"></iframe>';

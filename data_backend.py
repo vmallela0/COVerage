@@ -20,6 +20,7 @@ headline_biology_1 = headline_biology_2 = headline_biology_3 = headline_biology_
 headline_economy_1 = headline_economy_2 = headline_economy_3 = headline_economy_4 = headline_economy_5 = " default"
 
 headline_statistics_1 = headline_statistics_2 = headline_statistics_3 = headline_statistics_4 = headline_statistics_5 = " default"
+
 # Paragraphs
 text_policies_1 = text_policies_2 = text_policies_3 = text_policies_4 = text_policies_5 = "text about policies"
 
@@ -56,6 +57,7 @@ url_economy_1 = url_economy_2 = url_economy_3 = url_economy_4 = url_economy_5 = 
 url_statistics_1 = url_statistics_2 = url_statistics_3 = url_statistics_4 = url_statistics_5 = "https://compression.stanford.edu/"
 
 url_donations_1 = url_donations_2 = url_donations_3 = url_donations_4 = url_donations_5 = "https://covid19responsefund.org/en/"
+
 # tag names
 tag1_policies_1 = tag1_policies_2 = tag1_policies_3 = tag1_policies_4 = tag1_policies_5 = "policies tag1"
 
@@ -355,7 +357,7 @@ lavaa = {
                 tag2_statistics_5,
                 tag3_statistics_5]
             ]
-        }, 
+        },
         "donations":
         {
             "url": [
@@ -366,10 +368,10 @@ lavaa = {
                 url_donations_5
             ],
             "text": [
-                text_donations_1, 
-                text_donations_2, 
-                text_donations_3, 
-                text_donations_4, 
+                text_donations_1,
+                text_donations_2,
+                text_donations_3,
+                text_donations_4,
                 text_donations_5
             ]
         }
@@ -382,12 +384,12 @@ def home():
         jsdata = request.form
         print(jsdata)
         send_urls(jsdata['county_name'], jsdata['state_code'])
-        # send_urls("Santa Clara", "California") #! testing 
+        # send_urls("Santa Clara", "California") #! testing
         # rescor = coord(jsdata['county_name'] , jsdata['state_code'])
-        
+
     return render_template(
         "index.html",
-        lavaa = lavaa, 
+        lavaa = lavaa,
     )
 
 def coord(geolat, geolong):
@@ -417,7 +419,7 @@ def send_urls(county_name, state_code):
         print('\n%s \n', i)
         for r in range(5):
             article = Article(str(lavaa[i]['url'][r]))
-            
+
             try:
                 article.download()
                 article.parse()
@@ -433,7 +435,7 @@ def send_urls(county_name, state_code):
                 continue
 
     print("success")
-    
+
 
 
 # send_urls("SantaClara", "CA") #! use this for testing

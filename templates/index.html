@@ -544,9 +544,13 @@
                     <a href="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/">Results from Stanford University’s Journalism and Democracy Initiative</a></p>
                 <br><br>
                 <form action="/" method="POST">
-                    <label for="location">Enter your county/city:</label><br>
+                <script src="https://txpub.usgs.gov/DSS/search_api/1.1/api/search_api.min.js"></script>
+                <div id="sapi_searchTextBoxDiv"></div>
+                <script type="text/javascript" src="../static/js/searchBox.js">
+                </script>
+                    <!-- <label for="location">Enter your county/city:</label><br>
                     <input type="text" id="location" name="location" value="Your County/city"><br>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit"> -->
                 </form>
                 <h2 style="color: #8c1515;">About us</h2>
                 <p style="text-align: center; line-height: 20px;">
