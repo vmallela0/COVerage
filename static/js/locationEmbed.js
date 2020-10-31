@@ -1,3 +1,5 @@
+
+
 var embed_county = document.getElementById("embed_inner");
 var embed_outer = document.getElementById("embed_outer");
 var main_break = false;
@@ -17,7 +19,7 @@ window.onload = function getLocation() {
       // console.log("LOCATION ACCESS GRANTED \nLatitude: " + lat + "\nLongitude: " + long);
       fips_lookup(lat, long);
     },
-    function (box_super){
+    function (error){
       if(box_super==true){
         console.log('getting box data')
         fips_lookup(box_data.x, box_data.y)
@@ -32,18 +34,6 @@ window.onload = function getLocation() {
       location_err.innerHTML ="Location access was denied. Showing global news";
       embed_county.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/world-map/?embed=world#/" frameborder="0" scrolling="no" ></iframe>'
       }
-    },
-		function (error) {
-      // handles location access denied => defaults location to stanford
-      $.post( "/", { county_name: "world", state_code: "global" })
-
-      // var lat = 55.7558; // uncomment to test international locations
-      // var long = 37.6173; //! default testing for international ==> Москва (Moscow) 
-      // fips_lookup(lat, long)
-
-      covid_nametag.innerHTML = "World COVID-19 News"
-      location_err.innerHTML ="Location access was denied. Showing global news";
-      embed_county.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/world-map/?embed=world#/" frameborder="0" scrolling="no" ></iframe>'
     }
   );
 };
@@ -52,11 +42,11 @@ window.onload = function getLocation() {
 function showPosition(position) {
     lat = position.coords.latitude;
     long = position.coords.longitude;
-    if (typeof box_data !== 'undefined') {
+    if (typeof box_data.x !== 'undefined') {
+      console.log("\n\n\n", box_data, "\n\n\n")
       lat = box_data.x
       long = box_data.y
-    }  
-    
+    }    
     fips_lookup();
 }
 
@@ -144,12 +134,11 @@ function fips_lookup(geolat, geolong) {
       embed_county.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=stateCounty#/county/' + response.results[0].county_fips + '"frameborder="0" scrolling="yes"></iframe>';
       embed_outer.innerHTML = '<iframe style="width: 100%; height: 655px" src="https://covid19.biglocalnews.org/county-maps/index.html?embed=usa#/" frameborder="0" scrolling="yes"></iframe></iframe>'    
       // document.getElementById("main_post").submit()
-      
-      document.getElementById("location").value = response.results[0].county_name + " County, " + response.results[0].state_code;
-      console.log(document.getElementById("location").value)
-      // document.getElementById("main_post").submit()
-
       $.post( "/", { county_name: response.results[0].county_name, state_code: response.results[0].state_code });
+
+
+
+      
     }
   });
 }
