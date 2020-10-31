@@ -19,7 +19,7 @@ window.onload = function getLocation() {
     },
     function (box_super){
       if(box_super==true){
-        console.log('ssss')
+        console.log('getting box data')
         fips_lookup(box_data.x, box_data.y)
       }else{
         $.post( "/", { county_name: "world", state_code: "global" })
@@ -112,7 +112,8 @@ function international(geolat, geolong){
 
 
 function fips_lookup(geolat, geolong) {
-  console.log('starting fips lookup...');
+    location_err.innerHTML = "" // this gets rid of global news message if location mannually inputted
+    console.log('starting fips lookup...');
 	// feeding in long and lat to convert into FIPS and county
 
 	var fips_url =
