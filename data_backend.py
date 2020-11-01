@@ -389,8 +389,23 @@ def home():
 
     return render_template(
         "index.html",
-        lavaa = lavaa,
+        lavaa = lavaa
     )
+
+@app.route('/mobile', methods=['GET','POST'])
+def mobile():
+    if(request.method == 'POST'):
+        jsdata = request.form
+        print(jsdata)
+        send_urls(jsdata['county_name'], jsdata['state_code'])
+        # send_urls("Santa Clara", "California") #! testing
+        # rescor = coord(jsdata['county_name'] , jsdata['state_code'])
+
+    return render_template(
+        "mobile.html",
+        lavaa = lavaa
+    )
+
 
 def coord(geolat, geolong):
     geolat = str(geolat)

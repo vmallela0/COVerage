@@ -1,5 +1,7 @@
 
-
+// if ($(window).width() <= 1000) {
+//     window.location = "{{ url_for('team') }}";
+// }
 var embed_county = document.getElementById("embed_inner");
 var embed_outer = document.getElementById("embed_outer");
 var main_break = false;

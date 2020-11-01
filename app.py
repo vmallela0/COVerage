@@ -18,13 +18,6 @@ def page_not_found(e):
 def donate():
     return render_template("donate.html")
 
-@app.route('/mobile')
-def mobile():
-    return render_template(
-        "mobile.html",
-        lavaa = lavaa
-        )
-
 @app.route('/location')
 def location():
     return render_template("location.html")
