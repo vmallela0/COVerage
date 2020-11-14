@@ -382,7 +382,7 @@ lavaa = {
 def home():
     if(request.method == 'POST'):
         jsdata = request.form
-        print(jsdata)
+        print(jsdata['county_name'], jsdata['state_code'])
         send_urls(jsdata['county_name'], jsdata['state_code'])
         # send_urls("Santa Clara", "California") #! testing
         # rescor = coord(jsdata['county_name'] , jsdata['state_code'])
