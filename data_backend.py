@@ -441,7 +441,7 @@ def send_urls(county_name, state_code):
                 article.nlp()
                 lavaa[i]['headlines'][r] = article.title
                 lavaa[i]['image'][r] = article.top_image
-                lavaa[i]['text'][r] = article.summary
+                lavaa[i]['text'][r] = article.summary[:100]
                 lavaa[i]['tags'][r] = article.keywords[0:2]
             except:
                 lavaa[i]['headlines'][r] = "Error"
