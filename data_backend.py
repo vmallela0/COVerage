@@ -415,11 +415,11 @@ def coord(geolat, geolong):
     if(len(data['results']) != 0): return [data['results'][0]['county_name'],  data['results'][0]['state_name']]
     else: return ["global", "international"]
 
-def img_scrape(url_list):
-    arrayinator = []
-    for url in url_list:
-        arrayinator.append(img_scraper(url))
-    return arrayinator
+# def img_scrape(url_list):
+#     arrayinator = []
+#     for url in url_list:
+#         arrayinator.append(img_scraper(url))
+#     return arrayinator
 
 def popinator(lst, index):
     lst.append(lst.pop(index)) # moves element to end of list
@@ -434,7 +434,6 @@ def send_urls(county_name, state_code):
         print('\n%s \n', i)
         for r in range(5):
             article = Article(str(lavaa[i]['url'][r]))
-
             try:
                 article.download()
                 article.parse()
@@ -448,7 +447,15 @@ def send_urls(county_name, state_code):
                 lavaa[i]['text'][r] = "default text"
                 lavaa[i]['tags'][r] = ['1' ,'2', '3']
                 continue
-
+    for site in range(5): # donations list
+        lavaa['donations']['url'] = url_data['data']['donations']['urls']
+        donation_site = Article(str(lavaa['donations']['url'][site]))
+        donation_site.download()
+        donation_site.parse()
+        # print(donation_site.title)
+        # print(str(lavaa['donations']['url'][site]))
+        lavaa['donations']['text'][r] = donation_site.title
+        
     print("success")
 
 
